@@ -194,3 +194,18 @@ The changelog will be used to record changes, improvements, additions and fixes 
 | 14 August 2026    | | Part 1 prepared for POE submission.                   |                  
 
 Future website changes will be added to this changelog with the date, version number and a short description of the change.
+References
+## References
+
+1. **IxDF**, 2025. *User Centred Design (UCD)*. [online] Available at: <https://ixdf.org/literature/topics/user-centered-design> [Accessed 30 July 2026].
+
+2. **NN/Group**, 2025. *Top 10 UX Articles of 2025*. [online] Available at: <https://www.nngroup.com/articles/top-articles-2025/> [Accessed 30 July 2026].
+
+3. **UX Design Institute**, 2024. *What is UI design? A complete guide for 2025*. [online] Available at: <https://www.uxdesigninstitute.com/blog/what-is-ui-design/> [Accessed 30 July 2026].
+
+4. **ZARA**, 2026. *ZARA South Africa*. [online] Available at: <https://www.zara.com/za/> [Accessed 30 July 2026].
+
+5. **Finologue Business**, 2018. *ZARA's Business Model via Its Operation Strategy*. [video online] Available at: <https://www.youtube.com/watch?v=whFsziS3x18> [Accessed 10 August 2026].
+
+6. **Lucidchart**, 2026. *Lucidchart Diagramming Tool*. [online] Available at: <https://lucid.co/lucidchart> [Accessed 12 August 2026].
+
