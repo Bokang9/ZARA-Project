@@ -2,82 +2,113 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZARA - Store Locator</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>ZARA</h1>
-    <nav>
-      <a href="index.html">Home</a> | 
-      <a href="About Us.html">About Us</a> | 
-      <a href="Product Page.html">Products</a> | 
-      <a href="Store Locator.html">Store Locator</a> | 
-      <a href="Customer support.html">Customer Support</a>
-    </nav>
-    <input type="text" placeholder="Search">
-    <span>★ Bag (0)</span>
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="logo">ZARA</div>
+    <div class="search-box">
+      <span>⌕</span>
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="bag">★ Bag (0)</div>
   </header>
 
-  <main>
-    <p><a href="index.html">Home</a> / Store Locator</p>
-    <h2>Store Locator</h2>
+  <nav class="main-navigation">
+    <a href="index.html">Home</a>
+    <a href="About Us.html">About Us</a>
+    <a href="Product Page.html">Products</a>
+    <a href="Store Locator.html">Store Locator</a>
+    <a href="Customer support.html">Customer Support</a>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="index.html">Home</a> / Store Locator
+  </div>
+
+  <div class="locator-heading">
+    <h1>Store Locator</h1>
     <p>Find your nearest ZARA store</p>
+  </div>
 
-    <input type="text" placeholder="Enter City / postcode">
-    <button>🔍</button>
+  <main class="locator-layout">
 
-    <section>
-      <div>
-        <h3>ZARA Sandton City</h3>
+    <!-- LEFT SIDE - List -->
+    <div>
+      <form class="location-form">
+        <label>City / Postcode</label>
+        <div class="form-row">
+          <input type="text" placeholder="Enter City / postcode">
+          <button class="button">⌕</button>
+        </div>
+      </form>
+
+      <div class="store-card">
+        <h2>ZARA Sandton City</h2>
         <p>Sandton City Shopping Centre<br>Shop 123, Sandton Ext 3<br>2.0 km</p>
-        
-        <h3>ZARA Rosebank</h3>
-        <p>Rosebank Mall<br>Shop 45, Rosebank<br>3.4 km</p>
+        <a class="store-link" href="#">View on Map</a>
+      </div>
 
-        <h3>ZARA V&A Waterfront</h3>
+      <div class="store-card">
+        <h2>ZARA Rosebank</h2>
+        <p>Rosebank Mall<br>Shop 45, Rosebank<br>3.4 km</p>
+        <a class="store-link" href="#">View on Map</a>
+      </div>
+
+      <div class="store-card">
+        <h2>ZARA V&A Waterfront</h2>
         <p>V&A Waterfront<br>Cape Town<br>5.4 km</p>
+        <a class="store-link" href="#">View on Map</a>
       </div>
-      <div>
-        <img src="../Media/store locator1.jpg" alt="Transport" width="25%">
-        <p>[Transport to ZARA store]</p>
+    </div>
+
+    <!-- RIGHT SIDE - Images side by side - THIS WAS THE BROKEN PART -->
+    <div>
+      <div class="map-container" style="margin-bottom:1rem; min-height:200px;">
+        <img src="Media/store locator1.jpg" alt="Transport to ZARA store" style="min-height:200px;">
+       <span style="position:absolute; bottom:10px; left:10px; background:white; padding:0.3rem 0.5rem; font-size:0.7rem; z-index:1;">[Transport to ZARA store]</span>
       </div>
-      <div>
-        <img src="../Media/map.jpg" alt="Map" width="50%">
-        <p>[Map of the locations of zara]</p>
+
+    <div class="map-container">
+        <img src="Media/map.jpg" alt="Map of locations">
+       <div class="map-marker marker-one">1</div>
+        <div class="map-marker marker-two">2</div>
       </div>
-    </section>
+    </div>
+
   </main>
 
- <footer>
+  <footer class="site-footer">
     <div>
-      <h4>Customer Service</h4>
-      <a href="Customer support.html#contact">Contact Us</a><br>
+      <h3>Customer Service</h3>
+       <a href="Customer support.html#contact">Contact Us</a><br>
       <a href="Customer support.html#faqs">FAQs</a><br>
       <a href="Customer support.html#shipping">Shipping</a><br>
       <a href="Customer support.html#returns">Returns</a>
     </div>
-
     <div>
-      <h4>About ZARA</h4>
+      <h3>About ZARA</h3>
       <a href="About Us.html">About Us</a><br>
       <a href="About Us.html#careers">Careers</a><br>
       <a href="About Us.html#joinlife">Join Life</a>
     </div>
-
     <div>
-      <h4>HELP</h4>
-      <a href="Customer support.html#giftcard">Gift Card</a><br>
+      <h3>HELP</h3>
+     <a href="Customer support.html#giftcard">Gift Card</a><br>
       <a href="Customer support.html#account">My Account</a>
     </div>
-
     <div>
-      <h4>LEGAL</h4>
+      <h3>LEGAL</h3>
       <a href="Customer support.html#privacy">Privacy Policy</a><br>
       <a href="Customer support.html#terms">Terms & Conditions</a><br>
       <a href="Customer support.html#cookies">Cookie Settings</a>
     </div>
-    
-    <p>© 2026 ZARA. All rights reserved.</p>
   </footer>
+  
+</div>
 </body>
 </html>

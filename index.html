@@ -2,67 +2,87 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZARA - Home</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header>
-    <h1>ZARA</h1>
-    <nav>
-      <a href="index.html">Home</a> | 
+<div class="site-wrapper">
+
+  <header class="site-header">
+    <div class="logo">ZARA</div>
+    <div class="search-box">
+      <span>⌕</span>
+      <input type="text" placeholder="Search">
+    </div>
+    <div class="bag">★ Bag (0)</div>
+  </header>
+
+  <nav class="main-navigation">
+     <a href="index.html">Home</a> | 
       <a href="About Us.html">About Us</a> | 
       <a href="Product Page.html">Products</a> | 
       <a href="Store Locator.html">Store Locator</a> | 
       <a href="Customer support.html">Customer Support</a>
-    </nav>
-    <input type="text" placeholder="Search">
-    <span>★ Bag (0)</span>
-  </header>
+  </nav>
 
   <main>
-    <section>
-      <img src="../Media/homepage.jpg" alt="ZARA's logo" width="50%">
-      <a href="Product page.html"><button>Shop Now</button></a>
+    <!-- HERO - Matches wireframe -->
+    <section class="hero">
+      <img src="Media/homepage.jpg" alt="ZARA collection">
+       <div class="hero-content">
+        <a href="Product Page.html" class="button">Shop Now</a>
+      </div>
+      <div class="slider-dots">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+      </div>
     </section>
 
-    <section>
-      <h2>Join the Zara Community</h2>
-      <p>Sign up for early access to new collections, special offers and more</p>
-      <input type="email" placeholder="Enter your email">
-      <button>Subscribe</button>
+    <!-- JOIN COMMUNITY - Matches wireframe -->
+    <section class="community-section">
+      <div>
+        <h2>Join the Zara Community</h2>
+        <p>Sign up for early access to new collections, special offers and more</p>
+      </div>
+      <form class="newsletter-form">
+        <label>Newsletter</label>
+        <div class="form-row">
+          <input type="email" placeholder="Enter your email">
+          <button class="button" type="submit">Subscribe</button>
+        </div>
+      </form>
     </section>
   </main>
 
-   <footer>
+  <footer class="site-footer">
     <div>
-      <h4>Customer Service</h4>
-      <a href="Customer support.html#contact">Contact Us</a><br>
+      <h3>Customer Service</h3>
+     <a href="Customer support.html#contact">Contact Us</a><br>
       <a href="Customer support.html#faqs">FAQs</a><br>
       <a href="Customer support.html#shipping">Shipping</a><br>
       <a href="Customer support.html#returns">Returns</a>
     </div>
-
     <div>
-      <h4>About ZARA</h4>
-      <a href="About Us.html">About Us</a><br>
+      <h3>About ZARA</h3>
+       <a href="About Us.html">About Us</a><br>
       <a href="About Us.html#careers">Careers</a><br>
       <a href="About Us.html#joinlife">Join Life</a>
     </div>
-
     <div>
-      <h4>HELP</h4>
-      <a href="Customer support.html#giftcard">Gift Card</a><br>
+      <h3>HELP</h3>
+     <a href="Customer support.html#giftcard">Gift Card</a><br>
       <a href="Customer support.html#account">My Account</a>
     </div>
-
     <div>
-      <h4>LEGAL</h4>
+      <h3>LEGAL</h3>
       <a href="Customer support.html#privacy">Privacy Policy</a><br>
       <a href="Customer support.html#terms">Terms & Conditions</a><br>
       <a href="Customer support.html#cookies">Cookie Settings</a>
     </div>
-    
-    <p>© 2026 ZARA. All rights reserved.</p>
   </footer>
+
+</div>
 </body>
 </html>
