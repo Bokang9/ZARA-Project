@@ -1,26 +1,24 @@
 :root {
+  /* === CSS VARIABLES - Colour Palette === */
   --black: #000000;
   --white: #ffffff;
   --light-grey: #f5f5f5;
   --border-grey: #dedede;
   --charcoal: #333333;
   --medium-grey: #777777;
-  --beige: #e8ded1;
+  --beige: #e8ded1; /* Used for community section */
 }
 
-/* -----------------------------
-   Basic reset
------------------------------- */
-
+/* 1. RESET & BASE STYLES - Ensures consistency across browsers */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box; /* Includes padding in width calculation */
   margin: 0;
   padding: 0;
 }
 
 body {
   min-height: 100vh;
-  background-color: #eeeeee;
+  background-color: #eeeeee; /* Outer background */
   color: var(--black);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
@@ -36,17 +34,14 @@ button,
 input,
 textarea,
 select {
-  font: inherit;
+  font: inherit; /* Inherits font from body */
 }
 
 button {
   cursor: pointer;
 }
 
-/* -----------------------------
-   Main website container
------------------------------- */
-
+/* 2. SITE WRAPPER - Centers website with max-width 1200px */
 .site-wrapper {
   width: min(1200px, 100%);
   min-height: 100vh;
@@ -54,10 +49,7 @@ button {
   background-color: var(--white);
 }
 
-/* -----------------------------
-   Header
------------------------------- */
-
+/* 3. HEADER - Logo, Search, Bag - Grid 3 columns */
 .site-header {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
@@ -80,7 +72,7 @@ button {
   white-space: nowrap;
 }
 
-/* Search input in the header */
+/* Search input styling */
 .search-box {
   display: flex;
   align-items: center;
@@ -102,10 +94,7 @@ button {
   background: transparent;
 }
 
-/* -----------------------------
-   Navigation
------------------------------- */
-
+/*  4. MAIN NAVIGATION - Flex layout, uppercase links */
 .main-navigation {
   display: flex;
   justify-content: center;
@@ -119,16 +108,14 @@ button {
   text-transform: uppercase;
 }
 
+/* Hover effects for navigation and footer links */
 .main-navigation a:hover,
 .site-footer a:hover,
 .store-link:hover {
   color: var(--medium-grey);
 }
 
-/* -----------------------------
-   General content
------------------------------- */
-
+/*5. GENERAL CONTENT - Breadcrumb, headings, buttons */
 main {
   min-height: 500px;
 }
@@ -157,6 +144,7 @@ h2 {
   font-weight: normal;
 }
 
+/* Primary button style - used site-wide */
 .button {
   display: inline-block;
   padding: 0.8rem 1.5rem;
@@ -175,10 +163,7 @@ h2 {
   color: var(--black);
 }
 
-/* -----------------------------
-   Home page hero
------------------------------- */
-
+/* 6. HOME PAGE - Hero section with responsive image */
 .hero {
   position: relative;
   min-height: 560px;
@@ -189,9 +174,10 @@ h2 {
 .hero img {
   width: 100%;
   height: 560px;
-  object-fit: cover;
+  object-fit: cover; /* Prevents image distortion */
 }
 
+/* Dark gradient overlay for text readability */
 .hero::after {
   position: absolute;
   inset: 0;
@@ -213,11 +199,12 @@ h2 {
 
 .hero-content h1 {
   margin-bottom: 1.5rem;
-  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-size: clamp(2.2rem, 5vw, 4.5rem); /* Responsive font size */
   line-height: 1.1;
 }
 
-.hero-content .button {  border-color: var(--white);
+.hero-content .button {  
+  border-color: var(--white);
   background-color: var(--white);
   color: var(--black);
 }
@@ -227,6 +214,7 @@ h2 {
   color: var(--white);
 }
 
+/* Slider dots - visual indicator */
 .slider-dots {
   position: absolute;
   z-index: 2;
@@ -249,10 +237,7 @@ h2 {
   background-color: var(--black);
 }
 
-/* -----------------------------
-   Community/newsletter section
------------------------------- */
-
+/*7. COMMUNITY / NEWSLETTER SECTION - Beige background */
 .community-section {
   display: flex;
   align-items: center;
@@ -303,10 +288,7 @@ h2 {
   border: none;
 }
 
-/* -----------------------------
-   Page headings
------------------------------- */
-
+/* 8. PAGE HEADINGS - Used on Product, Locator, Support pages */
 .page-heading,
 .locator-heading,
 .support-heading {
@@ -326,10 +308,7 @@ h2 {
   color: var(--medium-grey);
 }
 
-/* -----------------------------
-   Product page
------------------------------- */
-
+/*9. PRODUCT PAGE - Controls, 3-column grid, cards */
 .product-controls {
   display: flex;
   align-items: center;
@@ -352,6 +331,7 @@ h2 {
   font-size: 0.8rem;
 }
 
+/* Product grid - 3 columns on desktop */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -372,9 +352,9 @@ h2 {
 .product-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 3 / 4; /* Keeps consistent image ratio */
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease; /* Smooth zoom on hover */
 }
 
 .product-card:hover .product-image img {
@@ -398,7 +378,8 @@ h2 {
 }
 
 .product-card p {
-  margin: 0.25rem 0 0.8rem; color: var(--charcoal);
+  margin: 0.25rem 0 0.8rem; 
+  color: var(--charcoal);
 }
 
 .add-button {
@@ -414,6 +395,7 @@ h2 {
   color: var(--white);
 }
 
+/* Pagination */
 .pagination {
   display: flex;
   justify-content: center;
@@ -433,10 +415,7 @@ h2 {
   color: var(--white);
 }
 
-/* -----------------------------
-   About page
------------------------------- */
-
+/*10. ABOUT US PAGE - 2-column layout */
 .about-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -472,10 +451,7 @@ h2 {
   margin-top: 0;
 }
 
-/* -----------------------------
-   Store locator page
------------------------------- */
-
+/* 11. STORE LOCATOR PAGE - Form, store cards, map */
 .locator-heading {
   display: block;
 }
@@ -535,7 +511,7 @@ h2 {
   height: 100%;
   min-height: 500px;
   object-fit: cover;
-  filter: grayscale(100%);
+  filter: grayscale(100%); /* Map in greyscale for design */
 }
 
 .map-marker {
@@ -557,10 +533,7 @@ h2 {
   bottom: 25%;
 }
 
-/* -----------------------------
-   Customer support page
------------------------------- */
-
+/* 12. CUSTOMER SUPPORT PAGE - Support cards, contact form, FAQ */
 .support-heading {
   display: block;
 }
@@ -597,7 +570,8 @@ h2 {
   font-size: 1.5rem;
 }
 
-.support-card h2 {margin-bottom: 0.5rem;
+.support-card h2 {
+  margin-bottom: 0.5rem;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
 }
@@ -683,10 +657,7 @@ h2 {
   color: var(--charcoal);
 }
 
-/* -----------------------------
-   Footer
------------------------------- */
-
+/* 13. FOOTER - 4 columns */
 .site-footer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -709,10 +680,45 @@ h2 {
   font-size: 0.75rem;
 }
 
-/* -----------------------------
-   Responsive design
------------------------------- */
+/* 14. WIREFRAME FIXES - Boxes matching wireframe design */
+.wireframe-box {
+  background: var(--light-grey);
+  border: 1px solid var(--border-grey);
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.wireframe-box::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top right, transparent 49%, #ccc 50%, transparent 51%),
+              linear-gradient(to top left, transparent 49%, #ccc 50%, transparent 51%);
+}
+.about-text-box {
+  background: var(--light-grey);
+  padding: 1.5rem;
+  font-size: 0.8rem;
+  color: var(--charcoal);
+  line-height: 1.6;
+}
 
+/* 15. ACCESSIBILITY - Focus and Active states 
+Keyboard users must see outline, :active gives click feedback */
+a:focus, button:focus, input:focus, select:focus, textarea:focus {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+a:active, button:active {
+  transform: scale(0.97);
+  opacity: 0.8;
+}
+
+/* 16. RESPONSIVE DESIGN - Tablet and Mobile
+   Tablet: max-width 800px - 2 columns, Mobile: max-width 500px - 1 column */
 @media (max-width: 800px) {
   .site-header {
     grid-template-columns: 1fr;
@@ -780,7 +786,8 @@ h2 {
     padding-left: 1.25rem;
   }
 
-  .about-image img {  height: 400px;
+  .about-image img {  
+    height: 400px;
   }
 
   .support-cards {
@@ -800,6 +807,7 @@ h2 {
 }
 
 @media (max-width: 500px) {
+  /* Mobile specific adjustments */
   .search-box {
     order: 3;
   }
@@ -813,7 +821,7 @@ h2 {
 
   .product-grid,
   .support-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column on mobile */
   }
 
   .form-row {
@@ -830,28 +838,40 @@ h2 {
     gap: 1.5rem 1rem;
   }
 }
-/* WIREFRAME FIXES */
-.wireframe-box {
-  background: var(--light-grey);
-  border: 1px solid var(--border-grey);
-  min-height: 200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.career-item {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-left: 3px solid #111;
+  background: #f7f7f7;
 }
-.wireframe-box::after {
-  content: "";
-  position: absolute;
+
+.career-item h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.career-item p {
+  margin: 0.4rem 0;
+}
+.no-results {
+  margin-top: 1rem;
+  color: #b00020;
+  font-size: 0.9rem;
+}
+
+.store-card {
+  transition: opacity 0.2s ease;
+}
+.waterfront-box {
+  width: 300px;
+  height: 180px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.waterfront-box img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top right, transparent 49%, #ccc 50%, transparent 51%),
-              linear-gradient(to top left, transparent 49%, #ccc 50%, transparent 51%);
-}
-.about-text-box {
-  background: var(--light-grey);
-  padding: 1.5rem;
-  font-size: 0.8rem;
-  color: var(--charcoal);
-  line-height: 1.6;
+  object-fit: cover;
+  display: block;
 }
