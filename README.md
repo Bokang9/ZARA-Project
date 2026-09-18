@@ -424,29 +424,29 @@ ZARA Project /
 The website uses a simple navigation structure that allows users to move between the main pages and access specific sections of the website.
 
 Home
-│
-├── About Us
-│   └── View Careers
-│       └── Redirects to Customer Support
-│
-├── Products
-│   ├── Women
-│   ├── Men
-│   ├── Kids
-│   ├── New Arrivals
-│   └── Sale
-│
-├── Store Locator
-│   └── View Place
-│       └── Redirects to Official Store Location / Map
-│
-└── Customer Support
-    ├── FAQs
-    ├── Help Topics
-    ├── Customer Reviews
-    ├── Customer Ratings
-    ├── Career Opportunities
-    └── Contact Form
+|
+About Us
+ * View Careers
+ * Redirects to Customer Support
+
+ Products Page
+ * Women
+ * Men
+ * Kids
+ * New Arrivals
+ * Sale
+
+Store Locator
+   * View Place
+   *  Redirects to Official Store Location / Map
+
+ Customer Support
+*  FAQs
+* Help Topics
+* Customer Reviews
+* Customer Ratings
+* Career Opportunities
+* Contact Form
 
 ## Navigation Functionality
 * Home — Takes users to the main landing page.
