@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZARA - Home</title>
+   <!-- styles.css contains reset, typography, layout, visual styles and media queries -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
     </div>
     <div class="bag">★ Bag (0)</div>
   </header>
-
+ <!-- Navigation menu - links to all pages - responsive (stacks on mobile via media query) -->
   <nav class="main-navigation">
      <a href="index.html">Home</a> | 
       <a href="About Us.html">About Us</a> | 
@@ -25,9 +26,8 @@
       <a href="Store Locator.html">Store Locator</a> | 
       <a href="Customer support.html">Customer Support</a>
   </nav>
-
+<!-- ==================== MAIN CONTENT ==================== -->
   <main>
-    <!-- HERO - Matches wireframe -->
     <section class="hero">
       <img src="Media/homepage.jpg" alt="ZARA collection">
        <div class="hero-content">
@@ -40,13 +40,14 @@
       </div>
     </section>
 
-    <!-- JOIN COMMUNITY - Matches wireframe -->
     <section class="community-section">
       <div>
         <h2>Join the Zara Community</h2>
         <p>Sign up for early access to new collections, special offers and more</p>
       </div>
+      <!-- NEWSLETTER FORM: User input form - responsive form layout -->
       <form class="newsletter-form">
+        <!-- FORM-ROW: Input and button side-by-side on desktop, stacked on mobile via media query -->
         <label>Newsletter</label>
         <div class="form-row">
           <input type="email" placeholder="Enter your email">
@@ -55,7 +56,10 @@
       </form>
     </section>
   </main>
-
+<!-- Footer contains 4 columns - fixed alignment from Part 1 feedback -->
+  <!-- Uses CSS Grid for layout: grid-template-columns changes with breakpoints -->
+  <!-- Desktop: 4 columns, Tablet: 2 columns, Mobile: 1 column stacked -->
+  <!-- Visual styles: background-color, color, link hover effects -->
   <footer class="site-footer">
     <div>
       <h3>Customer Service</h3>
