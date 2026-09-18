@@ -392,17 +392,17 @@ Several file names were changed during development to improve compatibility with
 ## 10. Website Structure
 The final website consists of the following main files and folders:
 
-ZARA Project /
+ZARA Project 
 │
-├── index.html
-├── about us.html
-├── products page.html
-├── store locator.html
-├── customer support.html
-├── style.css
-│
-└── MEDIA/
-    └── Website images and media files
+1. index.html
+ 2. about us.html
+ 3. products page.html
+ 4. store locator.html
+ 5. customer support.html
+ 6. style.css
+
+MEDIA
+1. Website images and media files
 
  ## Main Website Files
 
