@@ -424,7 +424,8 @@ MEDIA
 The website uses a simple navigation structure that allows users to move between the main pages and access specific sections of the website.
 
 Home
-|
+
+
 About Us
  * View Careers
  * Redirects to Customer Support
