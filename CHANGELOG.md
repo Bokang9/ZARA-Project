@@ -1,58 +1,19 @@
-# ZARA Clothing Store - Changelog
+## Changelog (Part 3)
 
-## Part 2 Updates - Based on Part 1 Feedback
-
-### Date: 2026
-
-#### 1. Fixed File Naming (Part 1 Feedback)
-- Renamed Home page to index.html
-- Reason: GitHub Pages does not support spaces in file names, caused 404 errors
-
-#### 2. Fixed Navigation Links (Part 1 Feedback)
-- Updated all navigation hrefs 
-- Example: `href="Home Page.html"` changed to `href="index.html"`
-- Fixed footer links to match new file names
-
-#### 3. Added Responsive Images (Requirement 3.3 - Part 2)
-- Added CSS: `img { max-width: 100%; height: auto; object-fit: cover; }`
-- Changed image from fixed height to responsive with max-width
-- Added missing alt attributes for accessibility: `alt="ZARA Customers"`
-
-#### 4. Implemented External Stylesheet Correctly (Part 2 Requirement)
-- Ensured `<link rel="stylesheet" href="styles.css">` is on all 5 pages
-- Removed all inline `<style>` tags from HTML files
-- Moved all styling to external styles.css
-
-#### 5. Added CSS Reset and Default Styles
-- Added: `* { margin: 0; padding: 0; box-sizing: border-box; }`
-- Added body default: `font-family: Arial, sans-serif; background-color: #fff; color: #333;`
-
-#### 6. Added Responsive Design - Layout Adjustments
-- Added Flexbox for header: `display: flex; justify-content: space-between; align-items: center;`
-- Added Grid for support cards: `display: grid; grid-template-columns: repeat(3, 1fr);`
-- Added Grid for 2-column layout: `grid-template-columns: 1fr 1fr;`
-
-#### 7. Added Media Queries for Tablet and Mobile
-- Tablet breakpoint: `@media (max-width: 768px) { support-layout 1 column, cards 2 columns }`
-- Mobile breakpoint: `@media (max-width: 480px) { cards 1 column, header stacks vertically }`
-- Added typography adjustments: `h1 { font-size: 2.5rem; }` reduces to `1.8rem` on mobile
-
-#### 8. Added Typography and Decoration Styles
-- Typography: `font-size in rem, font-weight, line-height: 1.6`
-- Decoration: `background-color, border, border-radius: 8px, box-shadow`
-- Visual consistency across all pages
-
-#### 9. Added Pseudo-Classes
-- `a:hover { color: #000; text-decoration: underline; }`
-- `button:hover { background-color: #333; transform: scale(1.02); }`
-- `input:focus { border-color: #000; outline: none; }`
-
-#### 10. Added New Content Sections
-- Added detailed Careers section with 4 job roles
-- Added Customer Reviews section with 3 reviews
-- Added FAQ section using <details> and <summary> elements
-- Added hidden anchor sections for footer links to work
-
-## References
-- W3Schools CSS Guide
-- MDN Web Docs - Responsive Design
+| Date | Update | Description |
+|------|--------|-------------|
+| 18 Sep 2026 | Fix: GitHub Pages compatibility | Renamed the home page to `index.html` and updated all navigation links so the website loads correctly on GitHub Pages without broken links. |
+| 18 Sep 2026 | Fix: File naming consistency | Standardised file naming across the project to avoid spaces and improve compatibility with static hosting. |
+| 18 Sep 2026 | Fix: Image and asset paths | Updated broken image paths and ensured all media files load correctly when hosted online. |
+| 18 Sep 2026 | Fix: About Us layout | Improved the About Us page layout by moving remaining inline styling into the stylesheet and correcting image and content alignment. |
+| 18 Sep 2026 | Fix: Careers section | Fixed the careers button redirect and ensured the image fits within the page container on mobile devices. |
+| 18 Sep 2026 | Fix: Navigation responsiveness | Added a mobile hamburger menu and updated the desktop navigation to wrap cleanly without horizontal scrolling at 375px width. |
+| 18 Sep 2026 | Fix: Product Page interactions | Added product search and sort functionality so users can filter the product grid by keyword and sort items by recommended, price low-to-high, and price high-to-low. |
+| 18 Sep 2026 | Fix: Header search | Made the header search field functional by filtering products on the Product Page. |
+| 18 Sep 2026 | Fix: Form validation | Added labels and `required` attributes to all forms, then implemented JavaScript validation for names, emails, messages, and newsletter subscription entries. |
+| 18 Sep 2026 | Update: Store Locator | Replaced the static map image with embedded Google Maps iframes for Sandton City, Rosebank, and the V&A Waterfront to improve location-based functionality. |
+| 18 Sep 2026 | Update: FAQ interaction | Added JavaScript-powered accordion functionality to the FAQ section for interactive reveal/hide behaviour. |
+| 18 Sep 2026 | Update: Responsive design | Added mobile-friendly layouts, flex wrapping for navigation, and responsive card/grid adjustments to ensure good usability on tablets and phones. |
+| 18 Sep 2026 | Update: SEO | Added meta titles, meta descriptions, semantic headings, alt text, internal links, and created `robots.txt` and `sitemap.xml` for improved SEO support. |
+| 18 Sep 2026 | Update: Accessibility | Improved keyboard focus states, removed inline styling, and ensured all form fields have labels and correct focus indications. |
+| 18 Sep 2026 | Update: Deployment support | Prepared the project for deployment on GitHub Pages/Netlify with corrected references, metadata, and static file structure. |

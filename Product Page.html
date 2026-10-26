@@ -5,145 +5,169 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZARA - Products</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<div class="site-wrapper">
+  <div id="toast" aria-live="polite"></div>
 
-  <header class="site-header">
-    <div class="logo">ZARA</div>
-    <div class="search-box">
-      <span>⌕</span>
-      <input type="text" placeholder="Search">
+  <div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <h3>We use cookies</h3>
+    <p>
+      We use cookies to improve your experience, remember your preferences, and help us understand website usage.
+    </p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+      <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
     </div>
-    <div class="bag">★ Bag (0)</div>
-  </header>
+  </div>
 
-  <nav class="main-navigation">
-    <a href="index.html">Home</a> | 
-      <a href="About Us.html">About Us</a> | 
-      <a href="Product Page.html">Products</a> | 
-      <a href="Store Locator.html">Store Locator</a> | 
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="logo">ZARA</div>
+
+      <div class="header-actions">
+        <form id="topSearchForm" class="search-box" aria-label="Search form">
+          <span>⌕</span>
+          <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products">
+          <button type="submit" class="search-submit">Search</button>
+        </form>
+
+        <button class="hamburger" type="button" aria-label="Open menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="bag">★ Bag (0)</div>
+      </div>
+    </header>
+
+    <nav class="main-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="About Us.html">About Us</a>
+      <a href="Product Page.html">Products</a>
+      <a href="Store Locator.html">Store Locator</a>
       <a href="Customer support.html">Customer Support</a>
-  </nav>
+    </nav>
 
-  <main>
-    <!-- CATEGORIES-->
-    <div style="padding:1rem 3rem; display:flex; gap:2rem; font-size:0.7rem; text-transform:uppercase; border-bottom:1px solid var(--border-grey);">
-      <a href="#women">Women</a>
-      <a href="#men">Men</a>
-      <a href="#kids">Kids</a>
-      <a href="#new">New Arrivals</a>
-      <a href="#sale">Sale</a>
-    </div>
-
-    <!-- CONTROLS-->
-    <div class="product-controls">
-      <button class="filter-button">★ Filter</button>
-      <label>Sort By</label>
-      <select><option>Recommended</option><option>Price Low to High</option><option>Price High to Low</option></select>
-      <span class="product-count" style="margin-left:auto;">120 Items</span>
-    </div>
-
-    <!-- PRODUCT GRID - 3 -->
-    <section class="product-grid">
-      
-      <div class="product-card" id="men">
-        <div class="product-image">
-           <img src="Media/product 5.jpg" alt="Men's Clothing">
-        <button class="favourite">♡</button>
-        </div>
-        <h2>Men's Clothing</h2>
-        <p>R1200</p>
-        <button class="add-button">Add to Bag</button>
+    <main>
+      <div style="padding:1rem 3rem; display:flex; gap:2rem; font-size:0.7rem; text-transform:uppercase; border-bottom:1px solid var(--border-grey); flex-wrap:wrap;">
+        <a href="#women">Women</a>
+        <a href="#men">Men</a>
+        <a href="#kids">Kids</a>
+        <a href="#new">New Arrivals</a>
+        <a href="#sale">Sale</a>
       </div>
 
-  <div class="product-card" id="women">
-        <div class="product-image">
-         <img src="Media/product 2 .jpg" alt="Women's Clothing">
-          <button class="favourite">♡</button>
-        </div>
-        <h2>Women's Clothing</h2>
-        <p>R1000</p>
-        <button class="add-button">Add to Bag</button>
+      <div class="product-controls">
+        <button class="filter-button" type="button">★ Filter</button>
+
+        <label for="productSort">Sort By</label>
+        <select id="productSort">
+          <option value="recommended">Recommended</option>
+          <option value="low-high">Price Low to High</option>
+          <option value="high-low">Price High to Low</option>
+        </select>
+
+        <span class="product-count">120 Items</span>
       </div>
 
-   <div class="product-card" id="kids">
-        <div class="product-image">
-          <img src="Media/product 3.jpg"alt="Kids' Clothing">
-          <button class="favourite">♡</button>
-        </div>
-        <h2>Kids' Clothing</h2>
-        <p>R850</p>
-        <button class="add-button">Add to Bag</button>
+      <section class="product-grid">
+        <article class="product-card" data-price="1200" id="men">
+          <div class="product-image">
+            <img src="Media/product 5.jpg" alt="Men's Clothing">
+            <button class="heart-btn" type="button" aria-label="Add to favorites">♡</button>
+          </div>
+          <h2>Men's Clothing</h2>
+          <p>R1200</p>
+          <button class="add-button" type="button">Add to Bag</button>
+        </article>
+
+        <article class="product-card" data-price="1000" id="women">
+          <div class="product-image">
+            <img src="Media/product 2 .jpg" alt="Women's Clothing">
+            <button class="heart-btn" type="button" aria-label="Add to favorites">♡</button>
+          </div>
+          <h2>Women's Clothing</h2>
+          <p>R1000</p>
+          <button class="add-button" type="button">Add to Bag</button>
+        </article>
+
+        <article class="product-card" data-price="850" id="kids">
+          <div class="product-image">
+            <img src="Media/product 3.jpg" alt="Kids' Clothing">
+            <button class="heart-btn" type="button" aria-label="Add to favorites">♡</button>
+          </div>
+          <h2>Kids' Clothing</h2>
+          <p>R850</p>
+          <button class="add-button" type="button">Add to Bag</button>
+        </article>
+
+        <article class="product-card" data-price="1500" id="new">
+          <div class="product-image">
+            <img src="Media/product image.jpg" alt="New Arrivals - Jacket">
+            <button class="heart-btn" type="button" aria-label="Add to favorites">♡</button>
+          </div>
+          <h2>New Arrivals - Jacket</h2>
+          <p>R1500</p>
+          <button class="add-button" type="button">Add to Bag</button>
+        </article>
+
+        <article class="product-card" data-price="900" id="accessories">
+          <div class="product-image">
+            <img src="Media/product 6.jpg" alt="Accessories">
+            <button class="heart-btn" type="button" aria-label="Add to favorites">♡</button>
+          </div>
+          <h2>New Arrivals - Accessories</h2>
+          <p>R900</p>
+          <button class="add-button" type="button">Add to Bag</button>
+        </article>
+
+        <article class="product-card" data-price="500" id="sale">
+          <div class="product-image">
+            <img src="Media/product 4.jpg" alt="Sale Item">
+            <button class="heart-btn" type="button" aria-label="Add to favorites">♡</button>
+          </div>
+          <h2>Sale Item</h2>
+          <p>R500</p>
+          <button class="add-button" type="button">Add to Bag</button>
+        </article>
+      </section>
+
+      <div class="pagination">
+        <button class="page-btn active" type="button" data-page="1">1</button>
+        <button class="page-btn" type="button" data-page="2">2</button>
+        <button class="page-btn" type="button" data-page="3">3</button>
+        <button class="page-btn" type="button" data-page="4">4</button>
       </div>
+    </main>
 
- <div class="product-card" id="new">
-        <div class="product-image">
-         <img src="Media/product image.jpg" alt="New Arrivals - Jacket">
-          <button class="favourite">♡</button>
-        </div>
-        <h2>New Arrivals - Jacket</h2>
-        <p>R1500</p>
-        <button class="add-button">Add to Bag</button>
+    <footer class="site-footer">
+      <div>
+        <h3>Customer Service</h3>
+        <a href="customer-support.html#contact">Contact Us</a><br>
+        <a href="customer-support.html#faqs">FAQs</a><br>
+        <a href="customer-support.html#shipping">Shipping</a><br>
+        <a href="customer-support.html#returns">Returns</a>
       </div>
-
-  <div class="product-card">
-        <div class="product-image">
-         <img src="Media/product 6.jpg"alt="Accessories">
-          <button class="favourite">♡</button>
-        </div>
-        <h2>New Arrivals - Accessories</h2>
-        <p>R900</p>
-        <button class="add-button">Add to Bag</button>
+      <div>
+        <h3>About ZARA</h3>
+        <a href="about-us.html">About Us</a><br>
+        <a href="about-us.html#careers">Careers</a><br>
+        <a href="about-us.html#join-life">Join Life</a>
       </div>
-
-  <div class="product-card" id="sale">
-        <div class="product-image">
-    <img src="Media/product 4.jpg" alt="Sale Item">
-          <button class="favourite">♡</button>
-        </div>
-        <h2>Sale Item</h2>
-        <p>R500</p>
-        <button class="add-button">Add to Bag</button>
+      <div>
+        <h3>HELP</h3>
+        <a href="customer-support.html#gift-card">Gift Card</a><br>
+        <a href="customer-support.html#account">My Account</a>
       </div>
-
-    </section>
-
-    <div class="pagination">
-      <button class="current-page">1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>4</button>
-    </div>
-  </main>
-
- <footer class="site-footer">
-    <div>
-      <h3>Customer Service</h3>
-       <a href="Customer support.html#contact">Contact Us</a><br>
-      <a href="Customer support.html#faqs">FAQs</a><br>
-      <a href="Customer support.html#shipping">Shipping</a><br>
-      <a href="Customer support.html#returns">Returns</a>
-    </div>
-    <div>
-      <h3>About ZARA</h3>
-      <a href="About Us.html">About Us</a><br>
-      <a href="About Us.html#careers">Careers</a><br>
-      <a href="About Us.html#joinlife">Join Life</a>
-    </div>
-    <div>
-      <h3>HELP</h3>
-     <a href="Customer support.html#giftcard">Gift Card</a><br>
-      <a href="Customer support.html#account">My Account</a>
-    </div>
-    <div>
-      <h3>LEGAL</h3>
-     <a href="Customer support.html#privacy">Privacy Policy</a><br>
-      <a href="Customer support.html#terms">Terms & Conditions</a><br>
-      <a href="Customer support.html#cookies">Cookie Settings</a>
-    </div>
-  </footer>
-  
-</div>
+      <div>
+        <h3>LEGAL</h3>
+        <a href="customer-support.html#privacy">Privacy Policy</a><br>
+        <a href="customer-support.html#terms">Terms & Conditions</a><br>
+        <a href="customer-support.html#cookies">Cookie Settings</a>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>

@@ -5,18 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ZARA - About Us</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<div class="site-wrapper">
+  <div id="toast" aria-live="polite"></div>
 
-  <header class="site-header">
-    <div class="logo">ZARA</div>
-    <div class="search-box">
-      <span>⌕</span>
-      <input type="text" placeholder="Search">
-    </div>
-    <div class="bag">★ Bag (0)</div>
-  </header>
+<div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <h3>We use cookies</h3>
+  <p>
+    We use cookies to improve your experience, remember your preferences, and help us understand website usage.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+    <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+  </div>
+</div>
 
   <nav class="main-navigation">
     <a href="index.html">Home</a> | 

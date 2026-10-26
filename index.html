@@ -6,18 +6,40 @@
   <title>ZARA - Home</title>
    <!-- styles.css contains reset, typography, layout, visual styles and media queries -->
   <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-<div class="site-wrapper">
+  <div id="toast" aria-live="polite"></div>
 
-  <header class="site-header">
-    <div class="logo">ZARA</div>
-    <div class="search-box">
+<div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <h3>We use cookies</h3>
+  <p>
+    We use cookies to improve your experience, remember your preferences, and help us understand website usage.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+    <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+  </div>
+</div>
+<header class="site-header">
+  <div class="logo">ZARA</div>
+
+  <div class="header-actions">
+    <form id="topSearchForm" class="search-box" aria-label="Search form">
       <span>⌕</span>
-      <input type="text" placeholder="Search">
-    </div>
+      <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products" />
+      <button type="submit" class="search-submit">Search</button>
+    </form>
+
+    <button class="hamburger" type="button" aria-label="Open menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <div class="bag">★ Bag (0)</div>
-  </header>
+  </div>
+</header>
  <!-- Navigation menu - links to all pages - responsive (stacks on mobile via media query) -->
   <nav class="main-navigation">
      <a href="index.html">Home</a> | 
@@ -46,14 +68,13 @@
         <p>Sign up for early access to new collections, special offers and more</p>
       </div>
       <!-- NEWSLETTER FORM: User input form - responsive form layout -->
-      <form class="newsletter-form">
-        <!-- FORM-ROW: Input and button side-by-side on desktop, stacked on mobile via media query -->
-        <label>Newsletter</label>
-        <div class="form-row">
-          <input type="email" placeholder="Enter your email">
-          <button class="button" type="submit">Subscribe</button>
-        </div>
-      </form>
+     <form id="newsletterForm" class="newsletter-form" novalidate>
+  <label for="newsletterEmail">Newsletter</label>
+  <div class="form-row">
+    <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
+    <button class="button" type="submit">Subscribe</button>
+  </div>
+</form>
     </section>
   </main>
 <!-- Footer contains 4 columns - fixed alignment from Part 1 feedback -->
