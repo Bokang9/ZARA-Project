@@ -1,111 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://your-website-link.netlify.app/</loc>
+    <loc>https://bokang9.github.io/ZARA-Project/</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-website-link.netlify.app/About%20Us.html</loc>
+    <loc>https://bokang9.github.io/ZARA-Project/index.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://your-website-link.netlify.app/Product%20Page.html</loc>
+    <loc>https://bokang9.github.io/ZARA-Project/About%20Us.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://your-website-link.netlify.app/Store%20Locator.html</loc>
+    <loc>https://bokang9.github.io/ZARA-Project/Product%20Page.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://your-website-link.netlify.app/Customer%20support.html</loc>
+    <loc>https://bokang9.github.io/ZARA-Project/Store%20Locator.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bokang9.github.io/ZARA-Project/Customer%20support.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bokang9.github.io/ZARA-Project/enquiry.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://bokang9.github.io/ZARA-Project/contact.html</loc>
+    <lastmod>2026-09-18</lastmod>
+    <priority>0.6</priority>
   </url>
 </urlset>
-
-<a href="https://www.inditexcareers.com/" target="_blank" rel="noopener">
-  Inditex Careers
-</a>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enquiry Form</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <main class="form-page">
-    <h1>Enquiry Form</h1>
-
-    <form id="enquiryForm" action="#" method="post" novalidate>
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input id="fullName" name="fullName" type="text" required />
-      </div>
-
-      <div class="form-group">
-        <label for="email">Email Address</label>
-        <input id="email" name="email" type="email" required />
-      </div>
-
-      <div class="form-group">
-        <label for="serviceType">Enquiry Type</label>
-        <select id="serviceType" name="serviceType" required>
-          <option value="">Select an option</option>
-          <option value="products">Products</option>
-          <option value="services">Services</option>
-          <option value="sponsorship">Sponsorship</option>
-          <option value="volunteering">Volunteering</option>
-        </select>
-      </div>
-
-      <div class="form-group">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">Submit Enquiry</button>
-      <p id="enquiryStatus" class="form-status" aria-live="polite"></p>
-    </form>
-  </main>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-</head>
-<body>
-  <main class="form-page">
-    <h1>Contact Us</h1>
-
-    <form id="contactForm" action="#" method="post" novalidate>
-      <div class="form-group">
-        <label for="contactName">Name</label>
-        <input id="contactName" name="contactName" type="text" required />
-      </div>
-
-      <div class="form-group">
-        <label for="contactEmail">Email</label>
-        <input id="contactEmail" name="contactEmail" type="email" required />
-      </div>
-
-      <div class="form-group">
-        <label for="subject">Subject</label>
-        <input id="subject" name="subject" type="text" required />
-      </div>
-
-      <div class="form-group">
-        <label for="contactMessage">Message</label>
-        <textarea id="contactMessage" name="contactMessage" rows="6" required></textarea>
-      </div>
-
-      <button type="submit" class="submit-btn">Send Message</button>
-      <p id="contactStatus" class="form-status" aria-live="polite"></p>
-    </form>
-  </main>
-</body>
-</html>
-
