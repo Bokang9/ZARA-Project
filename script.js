@@ -256,3 +256,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Auto-open details when coming from About Us -> View careers
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const el = document.querySelector(hash);
+    if (el && el.tagName.toLowerCase() === 'details') {
+      el.open = true;
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }
+});
