@@ -270,3 +270,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+// Footer anchor fix - open details when coming from another page
+document.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash;
+  if (hash) {
+    const el = document.querySelector(hash);
+    if (el && el.tagName.toLowerCase() === 'details') {
+      el.open = true;
+      setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 100);
+    }
+  }
+});
