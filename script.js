@@ -283,14 +283,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Fix: auto-open FAQ when coming from footer
-document.addEventListener('DOMContentLoaded', () => {
-  const hash = window.location.hash;
-  if (hash) {
-    const target = document.querySelector(hash);
-    if (target && target.tagName.toLowerCase() === 'details') {
-      target.open = true;
-      setTimeout(() => target.scrollIntoView({ behavior: 'smooth' }), 150);
-    }
-  }
-});
