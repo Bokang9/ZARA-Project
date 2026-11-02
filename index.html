@@ -1,113 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ZARA - Home</title>
-   <!-- styles.css contains reset, typography, layout, visual styles and media queries -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
   <script src="script.js" defer></script>
+  <meta name="description" content="ZARA South Africa - Shop latest fashion for Women, Men, Kids. New collections, store locator, customer support.">
+<meta name="keywords" content="ZARA South Africa, fashion, clothing, women, men, kids, Sandton, Rosebank, V&A">
+<meta property="og:title" content="ZARA South Africa">
+<meta property="og:description" content="Discover latest fashion at ZARA South Africa">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://bokang-molelle-zara.netlify.app/">
 </head>
 <body>
   <div id="toast" aria-live="polite"></div>
 
-<div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
-  <h3>We use cookies</h3>
-  <p>
-    We use cookies to improve your experience, remember your preferences, and help us understand website usage.
-  </p>
-  <div class="cookie-actions">
-    <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
-    <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+  <div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <h3>We use cookies</h3>
+    <p>We use cookies to improve your experience, remember your preferences, and help us understand website usage.</p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+      <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+    </div>
   </div>
-</div>
-<header class="site-header">
-  <div class="logo">ZARA</div>
 
-  <div class="header-actions">
-    <form id="topSearchForm" class="search-box" aria-label="Search form">
-      <span>⌕</span>
-      <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products" />
-      <button type="submit" class="search-submit">Search</button>
-    </form>
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="logo">ZARA</div>
 
-    <button class="hamburger" type="button" aria-label="Open menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+      <div class="header-actions">
+        <form id="topSearchForm" class="search-box" aria-label="Search form">
+          <span>⌕</span>
+          <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products" />
+          <button type="submit" class="search-submit">Search</button>
+        </form>
 
-    <div class="bag">★ Bag (0)</div>
-  </div>
-</header>
- <!-- Navigation menu - links to all pages - responsive (stacks on mobile via media query) -->
-  <nav class="main-navigation">
-     <a href="index.html">Home</a> | 
-      <a href="About Us.html">About Us</a> | 
-      <a href="Product Page.html">Products</a> | 
-      <a href="Store Locator.html">Store Locator</a> | 
-      <a href="Customer support.html">Customer Support</a>
-  </nav>
-<!-- ==================== MAIN CONTENT ==================== -->
-  <main>
-    <section class="hero">
-      <img src="Media/homepage.jpg" alt="ZARA collection">
-       <div class="hero-content">
-        <a href="Product Page.html" class="button">Shop Now</a>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="bag">★ Bag (0)</div>
       </div>
-      <div class="slider-dots">
-        <span class="active"></span>
-        <span></span>
-        <span></span>
-      </div>
-    </section>
+    </header>
 
-    <section class="community-section">
+    <nav class="main-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="About-Us.html">About Us</a>
+      <a href="Product-Page.html">Products</a>
+      <a href="Store-Locator.html">Store Locator</a>
+      <a href="Customer-Support.html">Customer Support</a>
+    </nav>
+
+    <main>
+      <section class="hero">
+        <img src="Media/homepage.jpg" alt="ZARA collection" />
+        <div class="hero-content">
+          <a href="Product-Page.html" class="button">Shop Now</a>
+        </div>
+        <div class="slider-dots" aria-label="Featured slides">
+          <span class="active"></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="community-section">
+        <div>
+          <h2>Join the Zara Community</h2>
+          <p>Sign up for early access to new collections, special offers and more.</p>
+        </div>
+
+        <form id="newsletterForm" class="newsletter-form" novalidate>
+          <label for="newsletterEmail">Newsletter</label>
+          <div class="form-row">
+            <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
+            <button class="button" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
       <div>
-        <h2>Join the Zara Community</h2>
-        <p>Sign up for early access to new collections, special offers and more</p>
+        <h3>Customer Service</h3>
+        <a href="Customer-Support.html#contact">Contact Us</a><br />
+        <a href="Customer-Support.html#faqs">FAQs</a><br />
+        <a href="Customer-Support.html#shipping">Shipping</a><br />
+        <a href="Customer-Support.html#returns">Returns</a>
       </div>
-      <!-- NEWSLETTER FORM: User input form - responsive form layout -->
-     <form id="newsletterForm" class="newsletter-form" novalidate>
-  <label for="newsletterEmail">Newsletter</label>
-  <div class="form-row">
-    <input id="newsletterEmail" type="email" placeholder="Enter your email" required />
-    <button class="button" type="submit">Subscribe</button>
+      <div>
+        <h3>About ZARA</h3>
+        <a href="About-Us.html">About Us</a><br />
+        <a href="About-Us.html#careers">Careers</a><br />
+        <a href="About-Us.html#joinlife">Join Life</a>
+      </div>
+      <div>
+        <h3>HELP</h3>
+        <a href="Customer-Support.html#giftcard">Gift Card</a><br />
+        <a href="Customer-Support.html#account">My Account</a>
+      </div>
+      <div>
+        <h3>LEGAL</h3>
+        <a href="Customer-Support.html#privacy">Privacy Policy</a><br />
+        <a href="Customer-Support.html#terms">Terms & Conditions</a><br />
+        <a href="Customer-Support.html#cookies">Cookie Settings</a>
+      </div>
+    </footer>
   </div>
-</form>
-    </section>
-  </main>
-<!-- Footer contains 4 columns - fixed alignment from Part 1 feedback -->
-  <!-- Uses CSS Grid for layout: grid-template-columns changes with breakpoints -->
-  <!-- Desktop: 4 columns, Tablet: 2 columns, Mobile: 1 column stacked -->
-  <!-- Visual styles: background-color, color, link hover effects -->
-  <footer class="site-footer">
-    <div>
-      <h3>Customer Service</h3>
-     <a href="Customer support.html#contact">Contact Us</a><br>
-      <a href="Customer support.html#faqs">FAQs</a><br>
-      <a href="Customer support.html#shipping">Shipping</a><br>
-      <a href="Customer support.html#returns">Returns</a>
-    </div>
-    <div>
-      <h3>About ZARA</h3>
-       <a href="About Us.html">About Us</a><br>
-      <a href="About Us.html#careers">Careers</a><br>
-      <a href="About Us.html#joinlife">Join Life</a>
-    </div>
-    <div>
-      <h3>HELP</h3>
-     <a href="Customer support.html#giftcard">Gift Card</a><br>
-      <a href="Customer support.html#account">My Account</a>
-    </div>
-    <div>
-      <h3>LEGAL</h3>
-      <a href="Customer support.html#privacy">Privacy Policy</a><br>
-      <a href="Customer support.html#terms">Terms & Conditions</a><br>
-      <a href="Customer support.html#cookies">Cookie Settings</a>
-    </div>
-  </footer>
-
-</div>
 </body>
 </html>

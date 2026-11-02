@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ZARA - Store Locator</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <meta name="description" content="ZARA South Africa - Shop latest fashion for Women, Men, Kids. New collections, store locator, customer support.">
+<meta name="keywords" content="ZARA South Africa, fashion, clothing, women, men, kids, Sandton, Rosebank, V&A">
+<meta property="og:title" content="ZARA South Africa">
+<meta property="og:description" content="Discover latest fashion at ZARA South Africa">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://bokang-molelle-zara.netlify.app/">
+</head>
+<body>
+  <div id="toast" aria-live="polite"></div>
+
+  <div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <h3>We use cookies</h3>
+    <p>We use cookies to improve your experience, remember your preferences, and help us understand website usage.</p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+      <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="logo">ZARA</div>
+
+      <div class="header-actions">
+        <form id="topSearchForm" class="search-box" aria-label="Search form">
+          <span>⌕</span>
+          <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products" />
+          <button type="submit" class="search-submit">Search</button>
+        </form>
+
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <div class="bag">★ Bag (0)</div>
+      </div>
+    </header>
+
+    <nav class="main-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="About-Us.html">About Us</a>
+      <a href="Product-Page.html">Products</a>
+      <a href="Store-Locator.html">Store Locator</a>
+      <a href="Customer-Support.html">Customer Support</a>
+    </nav>
+
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> / Store Locator
+    </div>
+
+    <div class="locator-heading">
+      <h1>Store Locator</h1>
+      <p>Find your nearest ZARA store</p>
+    </div>
+
+    <main class="locator-layout">
+      <div class="store-column">
+        <div class="store-card" data-location="sandton johannesburg sandton city 2196">
+          <h2>ZARA Sandton City</h2>
+          <p>Sandton City Shopping Centre<br />Shop 123, Sandton Ext 3<br />2.0 km</p>
+          <a class="store-link" href="https://www.google.com/maps/search/?api=1&query=ZARA+Sandton+City" target="_blank" rel="noopener">View on Map</a>
+        </div>
+
+        <div class="store-card" data-location="rosebank johannesburg rosebank mall 2196">
+          <h2>ZARA Rosebank</h2>
+          <p>Rosebank Mall<br />Shop 45, Rosebank<br />3.4 km</p>
+          <a class="store-link" href="https://www.google.com/maps/search/?api=1&query=ZARA+Rosebank" target="_blank" rel="noopener">View on Map</a>
+        </div>
+
+        <div class="store-card" data-location="cape town western cape va waterfront 8001">
+          <h2>ZARA V&A Waterfront</h2>
+          <p>V&A Waterfront<br />Cape Town<br />5.4 km</p>
+          <a class="store-link" href="https://www.google.com/maps/search/?api=1&query=ZARA+V%26A+Waterfront" target="_blank" rel="noopener">View on Map</a>
+        </div>
+      </div>
+
+      <div class="map-column">
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps?q=Sandton%20City%20Shopping%20Centre&output=embed" title="ZARA Sandton City location"></iframe>
+        </div>
+
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps?q=Rosebank%20Mall&output=embed" title="ZARA Rosebank location"></iframe>
+        </div>
+
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps?q=V%26A%20Waterfront%20Cape%20Town&output=embed" title="ZARA V&A Waterfront location"></iframe>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h3>Customer Service</h3>
+        <a href="Customer-Support.html#contact">Contact Us</a><br />
+        <a href="Customer-Support.html#faqs">FAQs</a><br />
+        <a href="Customer-Support.html#shipping">Shipping</a><br />
+        <a href="Customer-Support.html#returns">Returns</a>
+      </div>
+      <div>
+        <h3>About ZARA</h3>
+        <a href="About-Us.html">About Us</a><br />
+        <a href="About-Us.html#careers">Careers</a><br />
+        <a href="About-Us.html#joinlife">Join Life</a>
+      </div>
+      <div>
+        <h3>HELP</h3>
+        <a href="Customer-Support.html#giftcard">Gift Card</a><br />
+        <a href="Customer-Support.html#account">My Account</a>
+      </div>
+      <div>
+        <h3>LEGAL</h3>
+        <a href="Customer-Support.html#privacy">Privacy Policy</a><br />
+        <a href="Customer-Support.html#terms">Terms & Conditions</a><br />
+        <a href="Customer-Support.html#cookies">Cookie Settings</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

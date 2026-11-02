@@ -1,358 +1,151 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // ==========================================
-  // Shared state
-  // ==========================================
-  const bagKey = "zaraBagCount";
-  const cookieKey = "zaraCookieConsent";
-  const savedBag = Number(localStorage.getItem(bagKey) || 0);
-  let bagCount = Number.isFinite(savedBag) ? savedBag : 0;
-
+  const bagKey = "zaraBagCount"; const cookieKey = "zaraCookieConsent";
+  let bagCount = Number(localStorage.getItem(bagKey) || 0);
+  const productGrid = document.querySelector(".product-grid");
+  const initialCards = Array.from(document.querySelectorAll(".product-card"));
+  
   function updateBagDisplay() {
-    document.querySelectorAll(".bag").forEach((bagEl) => {
-      bagEl.textContent = `★ Bag (${bagCount})`;
-    });
+    document.querySelectorAll(".bag").forEach(el => el.textContent = `★ Bag (${bagCount})`);
     localStorage.setItem(bagKey, String(bagCount));
   }
-
   function showToast(message) {
-    const toast = document.getElementById("toast");
-    if (!toast) return;
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
+    const toast = document.getElementById("toast"); if (!toast) return;
+    toast.textContent = message; toast.classList.add("show");
     clearTimeout(showToast.timeoutId);
-    showToast.timeoutId = setTimeout(() => {
-      toast.classList.remove("show");
-    }, 2500);
+    showToast.timeoutId = setTimeout(() => toast.classList.remove("show"), 2500);
   }
-
   updateBagDisplay();
 
-  // ==========================================
-  // Cookie consent popup
-  // ==========================================
+  // Cookie Modal
   const cookieModal = document.getElementById("cookieModal");
-
-  function openCookieModal() {
-    if (cookieModal) {
-      cookieModal.classList.add("show");
-    }
-  }
-
-  function closeCookieModal() {
-    if (cookieModal) {
+  if (cookieModal && !localStorage.getItem(cookieKey)) cookieModal.classList.add("show");
+  document.querySelectorAll("[data-cookie-choice]").forEach(btn => {
+    btn.addEventListener("click", function() {
+      localStorage.setItem(cookieKey, this.dataset.cookieChoice);
       cookieModal.classList.remove("show");
-    }
-  }
-
-  if (!localStorage.getItem(cookieKey)) {
-    openCookieModal();
-  }
-
-  document.querySelectorAll("[data-cookie-choice]").forEach((btn) => {
-    btn.addEventListener("click", function () {
-      const choice = this.dataset.cookieChoice;
-      localStorage.setItem(cookieKey, choice);
-      closeCookieModal();
-      showToast(choice === "accepted" ? "Cookies accepted." : "Cookies declined.");
+      showToast(this.dataset.cookieChoice === "accepted" ? "Cookies accepted." : "Cookies declined.");
     });
   });
 
-  // ==========================================
-  // Search redirect
-  // ==========================================
-  const topSearchForm = document.getElementById("topSearchForm");
-  const topSearchInput = document.getElementById("topSearchInput");
-
-  if (topSearchForm && topSearchInput) {
-    topSearchForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const value = topSearchInput.value.trim().toLowerCase();
-
-      if (!value) {
-        showToast("Please enter a search term.");
-        return;
-      }
-
-      const routes = [
-        { match: ["home", "index", "main", "landing"], url: "index.html" },
-        { match: ["product", "products", "shop", "fashion"], url: "products.html" },
-        { match: ["store", "locator", "location", "store locator"], url: "store-locator.html" },
-        { match: ["support", "customer support", "help", "contact"], url: "customer-support.html" },
-        { match: ["about", "about us", "company"], url: "about-us.html" }
-      ];
-
-      const match = routes.find((route) =>
-        route.match.some((key) => value.includes(key))
-      );
-
-      if (match) {
-        window.location.href = match.url;
-      } else {
-        window.location.href = "products.html";
-      }
+  // Hamburger - REQUIRED
+  const hamburger = document.querySelector(".hamburger");
+  const nav = document.querySelector(".main-navigation");
+  if (hamburger && nav) {
+    hamburger.addEventListener("click", () => {
+      nav.classList.toggle("open");
+      hamburger.setAttribute("aria-expanded", String(nav.classList.contains("open")));
     });
+    nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
+      nav.classList.remove("open"); hamburger.setAttribute("aria-expanded","false");
+    }));
   }
 
-  // ==========================================
-  // Home newsletter form
-  // ==========================================
-  const newsletterForm = document.getElementById("newsletterForm");
-  if (newsletterForm) {
-    newsletterForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const emailInput = document.getElementById("newsletterEmail");
-      const email = emailInput.value.trim();
-
-      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        showToast("Please enter a valid email address.");
-        return;
-      }
-
-      showToast("Successfully subscribed.");
-      newsletterForm.reset();
-    });
-  }
-
-  // ==========================================
-  // Product page sorting + search filtering
-  // ==========================================
-  const sortSelect = document.getElementById("productSort");
-  const productSearch = document.getElementById("productSearch");
-  const productGrid = document.querySelector(".product-grid");
-  const productCards = Array.from(document.querySelectorAll(".product-card"));
-
-  function getVisibleProducts() {
-    if (!productGrid) return [];
-
-    let cards = productCards.filter((card) => {
-      const query = productSearch ? productSearch.value.trim().toLowerCase() : "";
-      const text = card.textContent.toLowerCase();
-
-      if (!query) return true;
-      return text.includes(query);
-    });
-
-    if (sortSelect) {
-      const selected = sortSelect.value;
-
-      cards = [...cards].sort((a, b) => {
-        const aPrice = Number(a.dataset.price || 0);
-        const bPrice = Number(b.dataset.price || 0);
-
-        if (selected === "low-high") return aPrice - bPrice;
-        if (selected === "high-low") return bPrice - aPrice;
-        return 0;
-      });
-    }
-
-    return cards;
-  }
+  // Dynamic Product Loading + Search + Sort - REQUIRED
+  const productsData = [
+    {name:"Men's Clothing", price:1200, img:"Media/product 5.jpg", cat:"men"},
+    {name:"Women's Clothing", price:1000, img:"Media/product 2 .jpg", cat:"women"},
+    {name:"Kids' Clothing", price:850, img:"Media/product 3.jpg", cat:"kids"},
+    {name:"New Arrivals - Jacket", price:1500, img:"Media/product image.jpg", cat:"new"},
+    {name:"Accessories", price:900, img:"Media/product 6.jpg", cat:"accessories"},
+    {name:"Sale Item", price:500, img:"Media/product 4.jpg", cat:"sale"}
+  ];
 
   function renderProducts() {
     if (!productGrid) return;
-
-    const visibleProducts = getVisibleProducts();
-    productCards.forEach((card) => {
-      card.style.display = "none";
-    });
-
-    visibleProducts.forEach((card) => {
-      card.style.display = "block";
-      productGrid.appendChild(card);
-    });
+    const query = (document.getElementById("productSearch")?.value || "").toLowerCase();
+    const sort = document.getElementById("productSort")?.value || "recommended";
+    let filtered = [...initialCards];
+    if (query) filtered = filtered.filter(c => c.textContent.toLowerCase().includes(query));
+    if (sort === "low-high") filtered.sort((a,b) => Number(a.dataset.price) - Number(b.dataset.price));
+    if (sort === "high-low") filtered.sort((a,b) => Number(b.dataset.price) - Number(a.dataset.price));
+    initialCards.forEach(c => c.style.display = "none");
+    filtered.forEach(c => { c.style.display = "block"; productGrid.appendChild(c); });
+    document.querySelector(".product-count")?.replaceChildren(document.createTextNode(`${filtered.length} Items`));
   }
-
-  if (sortSelect) {
-    sortSelect.addEventListener("change", renderProducts);
-  }
-
-  if (productSearch) {
-    productSearch.addEventListener("input", renderProducts);
-  }
-
-  // ==========================================
-  // Product favorites
-  // ==========================================
-  const favoriteButtons = document.querySelectorAll(".heart-btn");
-  favoriteButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      this.classList.toggle("liked");
-      showToast("Added 1 item to favorites.");
-    });
-  });
-
-  // ==========================================
-  // Add to bag
-  // ==========================================
-  const addToBagButtons = document.querySelectorAll(".add-button");
-  addToBagButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      bagCount += 1;
-      updateBagDisplay();
-      showToast("Added item to bag.");
-    });
-  });
-
-  // ==========================================
-  // Pagination
-  // ==========================================
-  const pageButtons = document.querySelectorAll(".page-btn");
-  pageButtons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const page = Number(this.dataset.page || 1);
-      const cardsPerPage = 2;
-      const startIndex = (page - 1) * cardsPerPage;
-      const cards = getVisibleProducts();
-
-      productCards.forEach((card) => {
-        card.style.display = "none";
-      });
-
-      const pageCards = cards.slice(startIndex, startIndex + cardsPerPage);
-
-      if (pageCards.length === 0) {
-        showToast("No products on this page.");
-        return;
-      }
-
-      pageCards.forEach((card) => {
-        card.style.display = "block";
-        productGrid.appendChild(card);
-      });
-
-      pageButtons.forEach((btn) => btn.classList.remove("active"));
-      this.classList.add("active");
-
-      const firstCard = pageCards[0];
-      if (firstCard) firstCard.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  });
-
-  // ==========================================
-  // Support form validation
-  // ==========================================
-  const supportForm = document.getElementById("supportForm");
-  if (supportForm) {
-    supportForm.addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const name = document.getElementById("customerName");
-      const email = document.getElementById("customerEmail");
-      const message = document.getElementById("customerMessage");
-
-      let valid = true;
-
-      if (!name.value.trim()) {
-        valid = false;
-      }
-
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-        valid = false;
-      }
-
-      if (!message.value.trim() || message.value.trim().length < 10) {
-        valid = false;
-      }
-
-      if (!valid) {
-        showToast("Please complete all required fields correctly.");
-        return;
-      }
-
-      showToast("Message sent.");
-      supportForm.reset();
-    });
-  }
-
-  // ==========================================
-  // Mobile nav toggle
-  // ==========================================
-  const hamburger = document.querySelector(".hamburger");
-  const nav = document.querySelector(".main-navigation");
-
-  if (hamburger && nav) {
-    hamburger.addEventListener("click", function () {
-      nav.classList.toggle("open");
-    });
-  }
-
-  // ==========================================
-  // FAQ toggles optional
-  // ==========================================
-  document.querySelectorAll(".faq-section details").forEach((detail) => {
-    detail.addEventListener("toggle", function () {
-      if (this.open) {
-        document.querySelectorAll(".faq-section details").forEach((other) => {
-          if (other !== this) other.removeAttribute("open");
-        });
-      }
-    });
-  });
-
-  // Do initial render if product page
+  document.getElementById("productSort")?.addEventListener("change", renderProducts);
+  document.getElementById("productSearch")?.addEventListener("input", renderProducts);
   renderProducts();
-});
 
-document.addEventListener("DOMContentLoaded", function () {
-  function showToast(message) {
-    const toast = document.getElementById("toast");
-    if (!toast) return;
-
-    toast.textContent = message;
-    toast.classList.add("show");
-
-    clearTimeout(showToast.timeoutId);
-    showToast.timeoutId = setTimeout(function () {
-      toast.classList.remove("show");
-    }, 2500);
+  // Header Search - REQUIRED functional
+  document.getElementById("topSearchForm")?.addEventListener("submit", function(e){
+    e.preventDefault();
+    const q = document.getElementById("topSearchInput").value.trim().toLowerCase();
+    if (!q) { showToast("Please enter a product name."); return; }
+    if (productGrid) {
+      document.getElementById("productSearch").value = q; renderProducts();
+      const visible = initialCards.filter(c => c.style.display !== "none").length;
+      showToast(visible ? `${visible} product(s) found.` : "No products match.");
+    } else {
+      // Redirect to product page with search
+      localStorage.setItem("pendingSearch", q);
+      window.location.href = "Product Page.html";
+    }
+  });
+  // Handle pending search from other pages
+  const pending = localStorage.getItem("pendingSearch");
+  if (pending && productGrid) {
+    const input = document.getElementById("productSearch");
+    if (input) { input.value = pending; renderProducts(); }
+    localStorage.removeItem("pendingSearch");
   }
 
-  const supportForm = document.getElementById("supportForm");
-  if (supportForm) {
-    supportForm.addEventListener("submit", function (event) {
-      event.preventDefault();
+  // Lightbox Gallery - REQUIRED for interactive elements
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox"; lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">×</button><img alt="Product view">';
+  document.body.appendChild(lightbox);
+  const lbImg = lightbox.querySelector("img");
+  lightbox.querySelector(".lightbox-close").addEventListener("click", () => lightbox.classList.remove("show"));
+  lightbox.addEventListener("click", (e) => { if (e.target === lightbox) lightbox.classList.remove("show"); });
+  document.querySelectorAll(".product-image img").forEach(img => {
+    img.style.cursor = "zoom-in";
+    img.addEventListener("click", () => { lbImg.src = img.src; lbImg.alt = img.alt; lightbox.classList.add("show"); });
+  });
 
-      const name = document.getElementById("customerName");
-      const email = document.getElementById("customerEmail");
-      const message = document.getElementById("customerMessage");
-      const errorBox = supportForm.querySelector(".form-error");
-      const successBox = supportForm.querySelector(".form-success");
+  // Favorites & Bag
+  document.querySelectorAll(".heart-btn").forEach(btn => btn.addEventListener("click", function(){
+    this.classList.toggle("liked"); showToast(this.classList.contains("liked") ? "Added to favorites." : "Removed from favorites.");
+  }));
+  document.querySelectorAll(".add-button").forEach(btn => btn.addEventListener("click", () => { bagCount++; updateBagDisplay(); showToast("Added item to bag."); }));
 
+  // Forms Validation + AJAX - REQUIRED
+  function validateAndSubmit(form, statusEl, successMsg){
+    form.addEventListener("submit", async function(e){
+      e.preventDefault();
       let valid = true;
-
-      if (!name.value.trim()) {
-        valid = false;
+      form.querySelectorAll("[required]").forEach(input => {
+        const val = input.value.trim();
+        let fieldValid = !!val;
+        if (input.type === "email") fieldValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+        if (input.tagName === "TEXTAREA") fieldValid = val.length >= 10;
+        input.setAttribute("aria-invalid", String(!fieldValid));
+        if (!fieldValid) valid = false;
+      });
+      if (!valid) { statusEl.textContent = "Please complete all required fields correctly."; statusEl.style.color = "red"; showToast("Please fix form errors."); return; }
+      statusEl.textContent = "Submitting..."; statusEl.style.color = "black";
+      try {
+        // Simulate AJAX submission
+        await new Promise(r => setTimeout(r, 800));
+        // await fetch("submit-form.php", {method:"POST", body:new FormData(form)});
+        statusEl.textContent = successMsg; statusEl.style.color = "green";
+        showToast(successMsg); form.reset();
+      } catch {
+        statusEl.textContent = "There was an error. Please try again."; statusEl.style.color = "red";
       }
-
-      if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
-        valid = false;
-      }
-
-      if (!message.value.trim() || message.value.trim().length < 10) {
-        valid = false;
-      }
-
-      if (!valid) {
-        if (errorBox) {
-          errorBox.textContent = "Please complete all required fields correctly.";
-        }
-        if (successBox) {
-          successBox.textContent = "";
-        }
-        showToast("Please complete all required fields correctly.");
-        return;
-      }
-
-      if (errorBox) errorBox.textContent = "";
-      if (successBox) successBox.textContent = "Message sent successfully.";
-
-      showToast("Message sent.");
-
-      supportForm.reset();
     });
   }
+  const supportForm = document.getElementById("supportForm");
+  if (supportForm) validateAndSubmit(supportForm, supportForm.querySelector(".form-success") || supportForm.querySelector(".form-error"), "Message sent successfully.");
+  const newsletterForm = document.getElementById("newsletterForm");
+  if (newsletterForm) {
+    newsletterForm.addEventListener("submit", function(e){
+      e.preventDefault();
+      const email = document.getElementById("newsletterEmail");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) { showToast("Enter valid email."); email.focus(); return; }
+      showToast("Successfully subscribed."); newsletterForm.reset();
+    });
+  }
+  const enquiryForm = document.getElementById("enquiryForm");
+  if (enquiryForm) validateAndSubmit(enquiryForm, document.getElementById("enquiryStatus"), "Your enquiry has been submitted successfully.");
+  const contactForm = document.getElementById("contactForm");
+  if (contactForm) validateAndSubmit(contactForm, document.getElementById("contactStatus"), "Your message has been sent successfully.");
 });
