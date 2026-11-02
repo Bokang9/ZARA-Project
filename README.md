@@ -27,7 +27,7 @@ The redesigned website maintains ZARA's clean, modern and minimalist brand ident
 
 The website was developed using HTML5, CSS3 and JavaScript, with responsive web design using Flexbox, CSS Grid, relative units and media queries.
 
-Improvements made after initial development include: correcting file names for GitHub Pages (index.html), fixing image loading issues, correcting page alignment with Flexbox/Grid, fixing the View Careers button, updating Store Locator from static map.jpg to 3 Google Maps iframes, fixing Customer Support image with max-width:100%, updating footer to responsive grid, implementing hamburger menu, product search/sort, lightbox gallery, form validation with AJAX, and SEO files robots.txt and sitemap.xml.
+Improvements made after initial development include: correcting file names for GitHub Pages (index.html), fixing image loading issues, correcting page alignment with Flexbox/Grid, fixing the View Careers button to Customer-support.html#careers with auto-open details JS, updating Store Locator from static map.jpg to 3 Google Maps iframes, fixing Customer Support image with max-width:100%, updating footer to responsive grid with correct links (Contact Us -> contact.html, Careers -> Customer-support.html#careers), implementing hamburger menu, product search/sort, lightbox gallery, form validation with AJAX, contact and enquiry forms, and SEO files robots.txt and sitemap.xml.
 
 ---
 
@@ -50,10 +50,11 @@ Improvements made after initial development include: correcting file names for G
 * Provide wishlist functionality via heart button
 * Provide Bag counter functionality using localStorage
 * Provide customer support with FAQ accordion and contact forms
+* Provide enquiry and contact forms with validation and AJAX simulation
 * Provide store locator with embedded Google Maps
 * Provide responsive experience with breakpoints at 1024px, 768px, 480px
 * Improve accessibility with focus-visible, labels, aria attributes
-* Ensure buttons and links redirect correctly
+* Ensure buttons and links redirect correctly (Contact Us -> contact.html, Careers -> Customer-support.html#careers)
 * Ensure images display correctly on GitHub Pages with global img rule
 * Use responsive CSS techniques with relative units rem, %, em
 * Maintain consistent styling across all pages with external style.css
@@ -74,7 +75,7 @@ Improvements made after initial development include: correcting file names for G
 * CSS Grid — Product grids, information sections, content layouts
 * CSS Media Queries — Breakpoints at 1024px and above, 768px, 480px, plus 800px and 500px fine-tuning
 * Relative CSS Units — rem, %, em, min(), clamp()
-* JavaScript — Hamburger toggle, product search/sort filtering, bag counter, favorites, toast notifications, cookie consent modal, lightbox gallery, form validation, AJAX simulation
+* JavaScript — Hamburger toggle, product search/sort filtering, bag counter, favorites, toast notifications, cookie consent modal, lightbox gallery, form validation, AJAX simulation, auto-open details for #careers #faqs #shipping etc
 * GitHub — Version control and repository management
 * GitHub Pages — Hosting at https://bokang9.github.io/ZARA-Project/
 * Visual Studio Code — Development environment
@@ -84,146 +85,122 @@ Improvements made after initial development include: correcting file names for G
 ## 6. Key Features and Functionality
 
 ### Home Page (index.html)
-Features:
-* Promotional banner with hero image (homepage.jpg) and Shop Now button
+* Promotional banner with hero image and Shop Now button
 * Navigation menu with hamburger for mobile
 * Search box functional - filters products on Product Page or redirects with localStorage
 * Newsletter signup with label, required, email validation and toast
 * Cookie consent modal with Accept/Decline stored in localStorage
-* Slider dots visual
 * Consistent footer with 4 columns
-* Button hover effects with box-shadow and transitions
-* Toast notification system
 
-Functionality: Users can view promotions, navigate sections, search products, subscribe to newsletter, manage cookies.
-
-File was renamed from home page.html to index.html for GitHub Pages compatibility.
-
-### About Us Page (About Us.html)
-Features:
+### About Us Page (About-Us.html)
 * ZARA company information, history, mission
-* About ZARA eyebrow text and image (about us 2.jpg)
-* View Careers button redirects to Customer support.html#careers
-* Information boxes aligned with Flexbox and Grid
-* Image with border-radius and responsive sizing
-* Career callout with image (zara careers.jpg)
+* View Careers button redirects to Customer-support.html#careers (auto-opens details via script.js)
+* Footer links fixed: Contact Us -> contact.html, Careers -> Customer-support.html#careers
 
-Improvements Made:
-* Fixed information boxes and images misalignment
-* Fixed image not displaying on GitHub Pages with case-sensitive path
-* Added global img rule max-width:100%; height:auto; display:block
-
-### Product Page (Product Page.html)
-Features Implemented:
+### Product Page (Product-Page.html)
 * Product display: 6 products with images, names, prices R500-R1500, data-price attributes
-* Product images with lightbox enlargement on click (cursor zoom-in, overlay with close button)
-* Category strip: Women, Men, Kids, New Arrivals, Sale (anchor links)
-* Search filtering by keyword via productSearch input and topSearchInput
-* Sorting: Recommended, Price Low to High, Price High to Low (functional via JavaScript sorting data-price)
-* Wishlist via heart button ♡ toggle with liked class and toast
-* Add to Bag button with counter ★ Bag (0) stored in localStorage zaraBagCount
-* Responsive product grid: 3 columns desktop, 2 tablet (768px), 1 mobile (480px)
-* Box-shadow and hover animation: translateY(-4px), image scale 1.04, fadeIn animation
-* Pagination buttons
-* Product count display (X Items)
+* Category strip, Search filtering, Sorting: Recommended, Price Low to High, Price High to Low
+* Wishlist, Add to Bag counter stored in localStorage, lightbox gallery
 
-Functionality: Users can search, sort, add to bag, add to favorites, view enlarged images in lightbox. Dynamic filtering without page reload using renderProducts() function.
+### Store Locator (Store-Locator.html)
+* 3 Google Maps iframes: ZARA Sandton City, ZARA Rosebank, ZARA V&A Waterfront
+* Store cards with View on Map links
 
-### Store Locator (Store Locator.html)
-Implemented:
-* Removed old static map.jpg
-* Added 3 Google Maps iframes: ZARA Sandton City, ZARA Rosebank, ZARA V&A Waterfront
-* Store cards with background var(--light-grey), padding, border-radius 12px, box-shadow var(--shadow)
-* Each card has h2, address, distance, and View on Map link to https://www.google.com/maps/search/ with target="_blank" rel="noopener"
-* Responsive 2-column layout: store-column and map-column (1 column at 768px)
-* Map containers min-height 260px with iframe border:0
+### Customer Support Page (Customer-support.html)
+* Support cards: Customer Ratings 4.8/5, FAQs
+* FAQ accordion using details/summary with IDs: faqs, shipping, returns, careers, contact, giftcard, account, privacy, terms, cookies
+* JavaScript auto-open details when URL hash present (in script.js, separated from HTML)
+* Careers section with 4 jobs: Sales Assistant, Department Manager, Visual Merchandiser, Stockroom Assistant
 
-### Customer Support Page (Customer support.html)
-Features:
-* Support cards: Customer Ratings 4.8/5, What our Customers Say, FAQs (3 columns with box-shadow)
-* Customer Reviews section with Sarah M., Thabo K., Priya N. reviews
-* Customer service hours and social handles
-* Contact form with labels, required, validation
-* Form fields: customerName, customerEmail, customerMessage with form-error and form-success
-* FAQ accordion using details/summary: How long is delivery, Can I return items, Shipping, Returns, Careers at ZARA
-* Career Opportunities section with 4 items: Sales Assistant, Department Manager, Visual Merchandiser, Stockroom Assistant
-* Responsive image customer reviews.jpg with max-width:100%
-* Responsive layout: 2 columns desktop, 1 column tablet
+### Contact Page (contact.html)
+* Contact form: Name, Email, Subject, Message, labels, required, novalidate, contactStatus aria-live
+* Validation: email regex, message >=10 chars, aria-invalid
+* AJAX simulation with async/await setTimeout 800ms, try/catch
+* Linked from footer Customer Service -> Contact Us and main navigation
 
-Functionality: Users can view FAQs (interactive reveal/hide), view customer feedback, send enquiry via validated form.
-
-### Forms Pages (Part 3 Requirement)
-* enquiry.html: Full Name, Email Address, Enquiry Type select (Products, Services, Sponsorship, Volunteering), Message, Submit button, enquiryStatus with aria-live
-* contact.html: Name, Email, Subject, Message, contactStatus
-* Both have labels, required, novalidate, form-group styling, box-shadow form-page
-* Client-side JavaScript validation: name trim, email regex /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message length >=10, aria-invalid true/false
-* AJAX submission simulation: async/await with setTimeout 800ms, try/catch, status messages green/red, form reset, toast
+### Enquiry Page (enquiry.html)
+* Enquiry form: Full Name, Email Address, Enquiry Type select (Products, Services, Sponsorship, Volunteering), Message
+* Validation and AJAX simulation, enquiryStatus aria-live
+* Linked from main navigation Enquiry
 
 ### Footer Updates
-* Improved alignment with grid
-* Consistent styling across all pages
-* Consistent links
-* Improved spacing
-* Responsive: 4 columns desktop, 2 columns at 768px, 1 column at 480px
+* Fixed Contact Us -> contact.html, Careers -> Customer-support.html#careers
+* Verified FAQs, Shipping, Returns, Gift Card, My Account, Privacy, Terms, Cookies -> Customer-support.html#anchors
+* Added JS to auto-open details when hash present
 
 ---
 
 ## 7. Responsive Design
 
 ### External CSS
-style.css linked to all pages for consistent styling.
+style.css linked to all pages
 
 ### CSS Reset
-* {box-sizing:border-box; margin:0; padding:0} to reduce browser differences.
+* {box-sizing:border-box; margin:0; padding:0}
 
 ### Relative Units
-* rem, %, em, min(), clamp() used for responsiveness
+rem, %, em, min(), clamp()
 
-### Flexbox
-Used for: information boxes, images, navigation (.main-navigation flex-wrap), header-actions flex-wrap, footer, button layouts, career-callout, form-row
+### Flexbox & Grid
+Flexbox for navigation, header-actions, footer, career-callout, form-row. Grid for product grids, about-section, locator-layout, support-cards, support-layout, site-footer
 
-### CSS Grid
-Used for: product grids, about-section, locator-layout, support-cards, support-layout, site-footer
-
-### Media Queries Implemented
+### Media Queries
 | Device | Breakpoint | Changes |
-| Desktop | 1024px and above | 3 column product grid, 4 column footer, full header |
-| Tablet | 768px | Hamburger displays, navigation hidden until open, 2 column product grid, about/locator/support 1 column, community-section column, 2 column footer |
-| Mobile | 480px | 1 column product grid, 1 column footer, hero content adjusts, form-row column |
+| Desktop | 1024px+ | 3 col product grid, 4 col footer |
+| Tablet | 768px | Hamburger, 2 col product grid, 1 col about/locator/support, 2 col footer |
+| Mobile | 480px | 1 col product grid, 1 col footer |
 
-Additional: 800px and 500px breakpoints for fine-tuning header, hero height 560px to 440px, padding adjustments.
-
-Responsive fix for 375px: Added flex-wrap to header-actions and main-navigation, removed pipe separators, search-box min-width:0 flex:1 1 100%, no horizontal scrolling.
+Fix 375px overflow: flex-wrap on header-actions and main-navigation, search-box min-width:0 flex:1 1 100%
 
 ### Global Image Rule
-```css
 img { max-width:100%; height:auto; display:block; }
 
-### 8. Box-Shadow and Animations
+## 8. Box-Shadow and Animations
 * :root --shadow: 0 8px 24px rgba(0,0,0,0.08)
 * Used on .store-card, .support-card, .form-page, .cookie-modal, .product-card:hover, .button
-* Hover effects: smooth transitions 0.25s ease, transform translateY, image scale
-* Keyframes fadeIn for product cards
-* Toast and cookie modal transitions
+* Hover: 0.25s ease, translateY, scale 1.04, fadeIn
 
-### 9. Website Navigation
-* Home (index.html) -> Main landing page with hero, newsletter, search
-About Us (About Us.html)
-* View Careers button -> Redirects to Customer support.html#careers
-Product Page (Product Page.html)
-* Women #women
-* Men #men
-* Kids #kids
-* New Arrivals #new
-* Sale #sale
-* Search input #productSearch
-* Sort select #productSort
-Store Locator (Store Locator.html)
-* View on Map links -> https://www.google.com/maps/search/?api=1&query=ZARA+...
-* Embedded iframes for Sandton City, Rosebank, V&A Waterfront
-Customer Support (Customer support.html)
-* FAQs accordion
-* Customer Reviews
-* Career Opportunities
-* Contact Form #supportForm
+## 9. Website Navigation
+* Home (index.html)
+* About Us (About-Us.html) -> View Careers -> Customer-support.html#careers
+* Product Page (Product-Page.html) -> Search, Sort, Wishlist, Bag
+* Store Locator (Store-Locator.html) -> Google Maps iframes
+* Customer Support (Customer-support.html) -> FAQ anchors with auto-open JS
+* Enquiry (enquiry.html) -> Enquiry form
+* Contact (contact.html) -> Contact form
+* Footer: Contact Us -> contact.html, Careers -> Customer-support.html#careers
 
+## 10. SEO
+* robots.txt with Allow: / and Sitemap
+* sitemap.xml with 8 URLs: index.html, About-Us.html, Product-Page.html, Store-Locator.html, Customer-support.html, enquiry.html, contact.html + root
+* Meta description, keywords, og:title, og:description, canonical on all pages
+
+---
+
+## 11. References
+
+1. Mozilla Developer Network (MDN) Web Docs, 2024. HTML: HyperText Markup Language - HTML5 semantics, forms, accessibility attributes (aria-live, aria-expanded, required, novalidate). [online] Available at: https://developer.mozilla.org/en-US/docs/Web/HTML [Accessed 15 Oct 2026].
+
+2. Mozilla Developer Network (MDN) Web Docs, 2024. CSS: Cascading Style Sheets - Flexbox, Grid, Media Queries, box-shadow, transitions, animations, relative units. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/CSS [Accessed 15 Oct 2026].
+
+3. Mozilla Developer Network (MDN) Web Docs, 2024. JavaScript Guide - DOM manipulation, localStorage, event listeners, async/await, try/catch, form validation. [online] Available at: https://developer.mozilla.org/en-US/docs/Web/JavaScript [Accessed 20 Oct 2026].
+
+4. W3Schools, 2024. HTML details and summary tags - FAQ accordion implementation. [online] Available at: https://www.w3schools.com/tags/tag_details.asp [Accessed 21 Oct 2026].
+
+5. W3Schools, 2024. CSS Responsive Web Design - Media Queries. [online] Available at: https://www.w3schools.com/css/css_rwd_mediaqueries.asp [Accessed 22 Oct 2026].
+
+6. W3Schools, 2024. JavaScript Form Validation - Email regex and required fields. [online] Available at: https://www.w3schools.com/js/js_validation.asp [Accessed 29 Oct 2026].
+
+7. ZARA Official Website, 2024. ZARA South Africa - Product layout, minimalist design inspiration, navigation structure. [online] Available at: https://www.zara.com/za/ [Accessed 10 Oct 2026].
+
+8. Inditex Group, 2024. About ZARA - Company history, founded 1975 by Amancio Ortega and Rosalia Mera. [online] Available at: https://www.inditex.com/about-us/our-brands/zara [Accessed 10 Oct 2026].
+
+9. Inditex Careers, 2024. Careers at ZARA - Job descriptions for Sales Assistant, Department Manager, Visual Merchandiser, Stockroom Assistant. [online] Available at: https://www.inditexcareers.com/ [Accessed 28 Oct 2026].
+
+10. GitHub Docs, 2024. GitHub Pages - Hosting static websites, case-sensitive file naming, index.html requirement. [online] Available at: https://docs.github.com/en/pages [Accessed 12 Oct 2026].
+
+11. Google Maps Platform, 2024. Embed a map - Using iframes for store locator (Sandton City, Rosebank, V&A Waterfront). [online] Available at: https://developers.google.com/maps/documentation/embed [Accessed 26 Oct 2026].
+
+12. Google Developers, 2024. SEO Starter Guide - robots.txt, sitemap.xml, canonical tags, meta description, Open Graph. [online] Available at: https://developers.google.com/search/docs/fundamentals/seo-starter-guide [Accessed 24 Oct 2026].
+
+13. WCAG 2.1 Guidelines, 2024. Web Accessibility - Labels, focus-visible, alt text, aria-live for forms and toasts. [online] Available at: https://www.w3.org/WAI/standards-guidelines/wcag/ [Accessed 27 Oct 2026].
