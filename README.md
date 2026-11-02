@@ -11,7 +11,7 @@ Student Name      **Bokang Molelle**
 Student Number    **ST10524905**       
 Module / Subject  **Web development**
 Lecturer          **Angel Rakhumba**        
-Submission Date   **18 September 2026**
+Submission Date   **02 November 2026**
 Live Site         **https://bokang9.github.io/ZARA-Project/**
 GitHub Repo       **https://github.com/bokang9/ZARA-Project**
 
