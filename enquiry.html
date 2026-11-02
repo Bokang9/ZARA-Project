@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquiry | ZARA South Africa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <meta name="description" content="Enquire about ZARA products, services, volunteering and sponsorship. Get cost and availability.">
+  <meta name="keywords" content="ZARA enquiry, products, services, volunteering, sponsorship, South Africa">
+  <meta property="og:title" content="ZARA Enquiry">
+  <meta property="og:description" content="Enquire about ZARA products and services">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://bokang9.github.io/ZARA-Project/enquiry.html">
+</head>
+<body>
+  <div id="toast" aria-live="polite"></div>
+
+  <div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <h3>We use cookies</h3>
+    <p>We use cookies to improve your experience, remember your preferences, and help us understand website usage.</p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+      <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="logo">ZARA</div>
+      <div class="header-actions">
+        <form id="topSearchForm" class="search-box" aria-label="Search form">
+          <span>⌕</span>
+          <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products" />
+          <button type="submit" class="search-submit">Search</button>
+        </form>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div class="bag">★ Bag (0)</div>
+      </div>
+    </header>
+
+    <nav class="main-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="About-Us.html">About Us</a>
+      <a href="Product-Page.html">Products</a>
+      <a href="Store-Locator.html">Store Locator</a>
+      <a href="Customer-Support.html">Customer Support</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+      <section class="community-section">
+        <div>
+          <h2>Product & Service Enquiry</h2>
+          <p>Enquire about products, services, volunteering or sponsorship. We will respond with cost and availability.</p>
+        </div>
+
+        <form id="enquiryForm" class="newsletter-form" novalidate>
+          <div class="form-group">
+            <label for="fullName">Full Name *</label>
+            <input id="fullName" type="text" required />
+            <span class="error" id="nameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input id="email" type="email" required />
+            <span class="error" id="emailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone *</label>
+            <input id="phone" type="tel" pattern="[0-9]{10}" required />
+            <span class="error" id="phoneError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="enquiryType">Enquiry Type *</label>
+            <select id="enquiryType" required>
+              <option value="">-- Select --</option>
+              <option value="Products">Products</option>
+              <option value="Services">Services</option>
+              <option value="Volunteering">Volunteering</option>
+              <option value="Sponsorship">Sponsorship</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" rows="5" minlength="10" required></textarea>
+            <span class="error" id="msgError"></span>
+          </div>
+
+          <button class="button" type="submit">Submit Enquiry</button>
+          <div id="formStatus" aria-live="polite"></div>
+          <div id="responseBox"></div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <h3>Customer Service</h3>
+        <a href="Customer-support.html#contact">Contact Us</a><br />
+        <a href="Customer-support.html#faqs">FAQs</a><br />
+        <a href="Customer-support.html#shipping">Shipping</a><br />
+        <a href="Customer-support.html#returns">Returns</a>
+      </div>
+      <div>
+        <h3>About ZARA</h3>
+        <a href="About-Us.html">About Us</a><br />
+        <a href="About-Us.html#careers">Careers</a><br />
+        <a href="About-Us.html#joinlife">Join Life</a>
+      </div>
+      <div>
+        <h3>HELP</h3>
+        <a href="Customer-support.html#giftcard">Gift Card</a><br />
+        <a href="Customer-support.html#account">My Account</a>
+      </div>
+      <div>
+        <h3>LEGAL</h3>
+        <a href="Customer-support.html#privacy">Privacy Policy</a><br />
+        <a href="Customer-support.html#terms">Terms & Conditions</a><br />
+        <a href="Customer-support.html#cookies">Cookie Settings</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

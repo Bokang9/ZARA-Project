@@ -149,3 +149,110 @@ document.addEventListener("DOMContentLoaded", function () {
   const contactForm = document.getElementById("contactForm");
   if (contactForm) validateAndSubmit(contactForm, document.getElementById("contactStatus"), "Your message has been sent successfully.");
 });
+
+// ========== PART 3 - ENQUIRY FORM (enquiry.html) ==========
+document.addEventListener('DOMContentLoaded', () => {
+  const enquiryForm = document.getElementById('enquiryForm');
+  if (enquiryForm) {
+    enquiryForm.addEventListener('submit', async function(e){
+      e.preventDefault();
+      let valid = true;
+      const name = document.getElementById('fullName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const type = document.getElementById('enquiryType').value;
+      const msg = document.getElementById('message').value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      const nameError = document.getElementById('nameError');
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const msgError = document.getElementById('msgError');
+
+      if (nameError) nameError.textContent = name ? '' : 'Full name required';
+      if (!name) valid = false;
+
+      if (emailError) emailError.textContent = emailRegex.test(email) ? '' : 'Valid email required';
+      if (!emailRegex.test(email)) valid = false;
+
+      if (phoneError) phoneError.textContent = /^[0-9]{10}$/.test(phone) ? '' : '10 digit number required';
+      if (!/^[0-9]{10}$/.test(phone)) valid = false;
+
+      if (msgError) msgError.textContent = msg.length >= 10 ? '' : 'Message 10+ characters';
+      if (msg.length < 10) valid = false;
+
+      if (!type) valid = false;
+      if (!valid) return;
+
+      const status = document.getElementById('formStatus');
+      if (status) {
+        status.textContent = 'Submitting via AJAX...';
+        status.style.color = 'black';
+      }
+
+      try {
+        await new Promise(r => setTimeout(r, 800));
+        if (status) {
+          status.textContent = 'Enquiry submitted successfully!';
+          status.style.color = 'green';
+        }
+        const box = document.getElementById('responseBox');
+        if (box) {
+          box.style.display = 'block';
+          let responseText = '';
+          if (type === 'Products') responseText = `Thank you ${name}. Product enquiry "${msg}" is in stock. Estimated cost: R299-R899. Available at Sandton City & Rosebank.`;
+          else if (type === 'Services') responseText = `Thank you ${name}. Our styling services cost R150 per session and are available Mon-Sat.`;
+          else if (type === 'Volunteering') responseText = `Thank you ${name}. Volunteering is open for V&A Waterfront store. No cost, training provided.`;
+          else if (type === 'Sponsorship') responseText = `Thank you ${name}. Sponsorship packages start from R5000. Our team will email you at ${email}.`;
+          box.innerHTML = `<strong>Response:</strong><br>${responseText}`;
+        }
+        this.reset();
+      } catch {
+        if (status) {
+          status.textContent = 'Failed to submit, try again';
+          status.style.color = 'red';
+        }
+      }
+    });
+  }
+
+  // ========== PART 3 - CONTACT FORM (contact.html) ==========
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e){
+      let valid = true;
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      const name = document.getElementById('cName').value.trim();
+      const email = document.getElementById('cEmail').value.trim();
+      const msg = document.getElementById('fullMessage').value.trim();
+
+      const cNameError = document.getElementById('cNameError');
+      const cEmailError = document.getElementById('cEmailError');
+      const cMsgError = document.getElementById('cMsgError');
+
+      if (cNameError) cNameError.textContent = name ? '' : 'Name required';
+      if (!name) valid = false;
+
+      if (cEmailError) cEmailError.textContent = emailRegex.test(email) ? '' : 'Valid email required';
+      if (!emailRegex.test(email)) valid = false;
+
+      if (cMsgError) cMsgError.textContent = msg.length >= 10 ? '' : 'Message 10+ characters';
+      if (msg.length < 10) valid = false;
+
+      if (!valid) {
+        e.preventDefault();
+        return;
+      }
+
+      const type = document.getElementById('msgType').value;
+      const compiled = `Full Name: ${name}%0D%0AEmail: ${email}%0D%0AType: ${type}%0D%0AMessage: ${msg}`;
+      this.action = `mailto:contact@zara-sa.co.za?subject=${type} Enquiry from ${name}&body=${compiled}`;
+
+      const contactStatus = document.getElementById('contactStatus');
+      if (contactStatus) {
+        contactStatus.textContent = 'Validated! Opening email client...';
+        contactStatus.style.color = 'green';
+      }
+    });
+  }
+});

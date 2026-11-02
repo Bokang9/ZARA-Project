@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap:  https://bokang9.github.io/ZARA-Project/
+Sitemap:  https://bokang9.github.io/ZARA-Project/sitemap.xml

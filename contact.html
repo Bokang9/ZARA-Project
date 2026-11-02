@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us | ZARA South Africa</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="script.js" defer></script>
+  <meta name="description" content="Contact ZARA South Africa for general enquiries.">
+  <link rel="canonical" href="https://bokang9.github.io/ZARA-Project/contact.html">
+</head>
+<body>
+  <div id="toast" aria-live="polite"></div>
+  <div id="cookieModal" class="cookie-modal" role="dialog" aria-live="polite" aria-label="Cookie consent">
+    <h3>We use cookies</h3>
+    <p>We use cookies to improve your experience.</p>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn secondary" data-cookie-choice="declined">Decline All</button>
+      <button type="button" class="cookie-btn" data-cookie-choice="accepted">Accept All</button>
+    </div>
+  </div>
+
+  <div class="site-wrapper">
+    <header class="site-header">
+      <div class="logo">ZARA</div>
+      <div class="header-actions">
+        <form id="topSearchForm" class="search-box" aria-label="Search form">
+          <span>⌕</span>
+          <input id="topSearchInput" type="search" placeholder="Search products" aria-label="Search products" />
+          <button type="submit" class="search-submit">Search</button>
+        </form>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="bag">★ Bag (0)</div>
+      </div>
+    </header>
+
+    <nav class="main-navigation" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="About-Us.html">About Us</a>
+      <a href="Product-Page.html">Products</a>
+      <a href="Store-Locator.html">Store Locator</a>
+      <a href="Customer-Support.html">Customer Support</a>
+      <a href="enquiry.html">Enquiry</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+      <section class="community-section">
+        <div>
+          <h2>Contact Us</h2>
+          <p>Send us a general message. Your details will be compiled into an email.</p>
+        </div>
+
+        <form id="contactForm" class="newsletter-form" action="mailto:contact@zara-sa.co.za" method="post" enctype="text/plain" novalidate>
+          <div class="form-group">
+            <label for="cName">Full Name *</label>
+            <input id="cName" type="text" required />
+            <span class="error" id="cNameError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="cEmail">Email *</label>
+            <input id="cEmail" type="email" required />
+            <span class="error" id="cEmailError"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="msgType">Type of Message *</label>
+            <select id="msgType" required>
+              <option value="">-- Select --</option>
+              <option value="General">General Enquiry</option>
+              <option value="Complaint">Complaint</option>
+              <option value="Compliment">Compliment</option>
+              <option value="Support">Support</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="fullMessage">Full Message *</label>
+            <textarea id="fullMessage" rows="6" minlength="10" required></textarea>
+            <span class="error" id="cMsgError"></span>
+          </div>
+
+          <button class="button" type="submit">Send Email</button>
+          <div id="contactStatus" aria-live="polite"></div>
+        </form>
+      </section>
+    </main>
+<footer class="site-footer">
+      <div>
+        <h3>Customer Service</h3>
+        <a href="Customer-support.html#contact">Contact Us</a><br />
+        <a href="Customer-support.html#faqs">FAQs</a><br />
+        <a href="Customer-support.html#shipping">Shipping</a><br />
+        <a href="Customer-support.html#returns">Returns</a>
+      </div>
+      <div>
+        <h3>About ZARA</h3>
+        <a href="About-Us.html">About Us</a><br />
+        <a href="About-Us.html#careers">Careers</a><br />
+        <a href="About-Us.html#joinlife">Join Life</a>
+      </div>
+      <div>
+        <h3>HELP</h3>
+        <a href="Customer-support.html#giftcard">Gift Card</a><br />
+        <a href="Customer-support.html#account">My Account</a>
+      </div>
+      <div>
+        <h3>LEGAL</h3>
+        <a href="Customer-support.html#privacy">Privacy Policy</a><br />
+        <a href="Customer-support.html#terms">Terms & Conditions</a><br />
+        <a href="Customer-support.html#cookies">Cookie Settings</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
