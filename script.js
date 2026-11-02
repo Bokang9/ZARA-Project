@@ -283,41 +283,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// SEARCH FIX - works from Home, About-Us, Store-Locator, Customer-support
-(function() {
-  const topSearchInput = document.getElementById('topSearchInput') || document.querySelector('.search-box input');
-  const topSearchBtn = document.getElementById('topSearchBtn') || document.querySelector('.search-box button');
 
-  function doSearch(e) {
-    if (e) e.preventDefault();
-    const q = (topSearchInput ? topSearchInput.value.trim() : '');
-    if (!q) return;
-    
-    const isOnProductPage = location.pathname.toLowerCase().includes('product-page');
-    if (isOnProductPage) {
-      const productSearch = document.getElementById('productSearch');
-      if (productSearch) {
-        productSearch.value = q;
-        productSearch.dispatchEvent(new Event('input'));
-      }
-    } else {
-      localStorage.setItem('pendingSearch', q);
-      window.location.href = PRODUCT_PAGE + '?q=' + encodeURIComponent(q);
-    }
-  }
-
-  if (topSearchBtn) topSearchBtn.addEventListener('click', doSearch);
-  if (topSearchInput) topSearchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') doSearch(e);
-  });
-})();
-
-// Auto-open details when coming from footer #careers etc
-const hash = window.location.hash;
-if (hash) {
-  const el = document.querySelector(hash);
-  if (el && el.tagName.toLowerCase() === 'details') {
-    el.open = true;
-    setTimeout(() => el.scrollIntoView({ behavior: 'smooth' }), 150);
-  }
-}
